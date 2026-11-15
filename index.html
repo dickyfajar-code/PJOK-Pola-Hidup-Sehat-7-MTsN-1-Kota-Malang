@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul Interaktif PJOK Kelas 7 - Memilih Hidup Sehat | MTsN 1 Kota Malang</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- html2pdf.js untuk fitur Unduh LKPD menjadi PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        mtsGreen: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Kustomisasi scrollbar & animasi halus dengan tema Biru Cerah Modern */
+        body {
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 35%, #dbeafe 70%, #eff6ff 100%);
+            min-height: 100vh;
+        }
+        .tab-active {
+            background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+            color: white;
+            box-shadow: 0 4px 14px 0 rgba(2, 132, 199, 0.35);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(186, 230, 253, 0.9);
+        }
+        .fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Styling khusus saat cetak/export PDF */
+        .pdf-export-mode {
+            background: white !important;
+            color: black !important;
+            padding: 20px !important;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-sky-200 selection:text-sky-900">
+
+    <!-- Top Identity Banner -->
+    <div class="bg-sky-950 text-sky-50 text-xs sm:text-sm py-2 px-4 border-b border-sky-800">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1 text-center sm:text-left">
+            <div class="flex items-center gap-2 font-medium">
+                <span class="bg-amber-400 text-sky-950 font-bold px-2 py-0.5 rounded text-xs">MTsN 1 KOTA MALANG</span>
+                <span>Pendidikan Jasmani, Olahraga, dan Kesehatan (PJOK) — Kelas VII</span>
+            </div>
+            <div class="text-sky-200">
+                <i class="fas fa-chalkboard-teacher mr-1"></i> Guru Pengampu: <strong class="text-white">Dicky Fajar Ramadhan, S.OR</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="bg-gradient-to-br from-sky-500 via-blue-600 to-indigo-700 text-white relative overflow-hidden shadow-lg">
+        <!-- Decorative SVG Circles -->
+        <div class="absolute top-0 right-0 -mt-16 -mr-16 w-72 h-72 rounded-full bg-cyan-300 opacity-20 blur-2xl"></div>
+        <div class="absolute bottom-0 left-0 -mb-16 -ml-16 w-64 h-64 rounded-full bg-amber-300 opacity-15 blur-2xl"></div>
+
+        <div class="max-w-6xl mx-auto px-4 py-10 sm:py-14 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="space-y-4 max-w-2xl text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-amber-200">
+                        <i class="fas fa-heartbeat"></i> Kurikulum Merdeka • Bab VI
+                    </div>
+                    <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+                        Pola Memilih <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-cyan-200">Hidup Sehat</span>
+                    </h1>
+                    <p class="text-sky-100 text-sm sm:text-base leading-relaxed">
+                        Siap jadi generasi MTsN 1 Kota Malang yang sehat, bugar, dan berprestasi? Yuk, jelajahi rahasia menjaga fisik prima dan mental tangguh lewat ilustrasi seru, tantangan interaktif, LKPD siap unduh, hingga kuis HOTS berhadiah piagam!
+                    </p>
+                    <div class="pt-2 flex flex-wrap justify-center md:justify-start gap-3">
+                        <button onclick="switchTab('materi')" class="bg-amber-400 hover:bg-amber-300 text-sky-950 font-bold px-5 py-2.5 rounded-xl shadow-lg transition transform hover:-translate-y-0.5 flex items-center gap-2 text-sm">
+                            <i class="fas fa-book-open"></i> Mulai Belajar
+                        </button>
+                        <button onclick="switchTab('fitur-ekstra')" class="bg-sky-500/80 hover:bg-sky-400 text-white border border-white/30 font-semibold px-5 py-2.5 rounded-xl transition flex items-center gap-2 text-sm">
+                            <i class="fas fa-calculator"></i> FITT & Kalori
+                        </button>
+                        <button onclick="switchTab('lkpd')" class="bg-white/15 hover:bg-white/25 text-white border border-white/30 font-semibold px-5 py-2.5 rounded-xl transition flex items-center gap-2 text-sm">
+                            <i class="fas fa-file-pdf"></i> Kerjakan LKPD
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Ilustrasi Interaktif Kesehatan Remaja (SVG) -->
+                <div class="w-full max-w-xs sm:max-w-sm bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-3xl shadow-2xl">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold uppercase tracking-wider text-emerald-200">4 Faktor Sehat (Kemenkes)</span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 text-center">
+                        <div class="bg-white/10 p-3 rounded-2xl border border-white/10">
+                            <div class="text-2xl mb-1">🏃‍♂️</div>
+                            <div class="font-bold text-sm text-amber-300">Perilaku (30%)</div>
+                            <div class="text-[11px] text-emerald-100">Gaya Hidup Harian</div>
+                        </div>
+                        <div class="bg-white/10 p-3 rounded-2xl border border-white/10">
+                            <div class="text-2xl mb-1">🌳</div>
+                            <div class="font-bold text-sm text-emerald-200">Lingkungan</div>
+                            <div class="text-[11px] text-emerald-100">Bersih & Mendukung</div>
+                        </div>
+                        <div class="bg-white/10 p-3 rounded-2xl border border-white/10">
+                            <div class="text-2xl mb-1">🏥</div>
+                            <div class="font-bold text-sm text-cyan-200">Pelayanan</div>
+                            <div class="text-[11px] text-emerald-100">Fasilitas Kesehatan</div>
+                        </div>
+                        <div class="bg-white/10 p-3 rounded-2xl border border-white/10">
+                            <div class="text-2xl mb-1">🧬</div>
+                            <div class="font-bold text-sm text-rose-200">Keturunan</div>
+                            <div class="text-[11px] text-emerald-100">Faktor Genetik</div>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-center text-emerald-200 mt-3 italic">
+                        "WHO: 60% kualitas hidup individu ditentukan oleh gaya hidup."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+                    <p class="text-[11px] text-center text-sky-100 mt-3 italic">
+                        "WHO: 60% kualitas hidup individu ditentukan oleh gaya hidup."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sticky Navigation Tabs -->
+    <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-sky-200 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-2.5 flex items-center justify-between overflow-x-auto gap-2">
+            <div class="flex items-center gap-2 mx-auto sm:mx-0">
+                <button id="btn-materi" onclick="switchTab('materi')" class="tab-active px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2">
+                    <i class="fas fa-layer-group"></i> 1. Materi (Sub Bab A–E)
+                </button>
+                <button id="btn-fitur-ekstra" onclick="switchTab('fitur-ekstra')" class="bg-sky-50 hover:bg-sky-100 text-sky-900 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2">
+                    <i class="fas fa-dumbbell"></i> 2. Lab FITT, Kalori & Mitos/Fakta
+                </button>
+                <button id="btn-lkpd" onclick="switchTab('lkpd')" class="bg-sky-50 hover:bg-sky-100 text-sky-900 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2">
+                    <i class="fas fa-edit"></i> 3. LKPD & Unduh PDF
+                </button>
+                <button id="btn-kuis" onclick="switchTab('kuis')" class="bg-sky-50 hover:bg-sky-100 text-sky-900 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2">
+                    <i class="fas fa-brain"></i> 4. Kuis HOTS (C3–C4)
+                </button>
+            </div>
+            <div class="hidden lg:flex items-center gap-2 text-xs text-slate-600 font-medium">
+                <span>Progres Belajar:</span>
+                <div class="w-28 h-2 bg-sky-100 rounded-full overflow-hidden">
+                    <div id="progress-bar" class="h-full bg-sky-600 transition-all duration-500" style="width: 25%;"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-6xl mx-auto px-4 py-8">
+
+        <!-- ========================================== -->
+        <!-- SECTION 1: MATERI INTERAKTIF (5 SUB BAB)   -->
+        <!-- ========================================== -->
+        <section id="section-materi" class="fade-in space-y-6">
+            
+            <!-- Sub-Bab Selector Pills -->
+            <div class="bg-white/95 p-3 rounded-2xl shadow-sm border border-sky-200 flex flex-wrap gap-2 justify-center">
+                <button onclick="showSubBab(1)" id="sub-btn-1" class="sub-pill bg-sky-600 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition shadow-sm">
+                    A. Risiko Gaya Hidup
+                </button>
+                <button onclick="showSubBab(2)" id="sub-btn-2" class="sub-pill bg-sky-50 hover:bg-sky-100 text-sky-900 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition">
+                    B. Gaya Hidup Tidak Sehat
+                </button>
+                <button onclick="showSubBab(3)" id="sub-btn-3" class="sub-pill bg-sky-50 hover:bg-sky-100 text-sky-900 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition">
+                    C. Kesehatan Mental
+                </button>
+                <button onclick="showSubBab(4)" id="sub-btn-4" class="sub-pill bg-sky-50 hover:bg-sky-100 text-sky-900 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition">
+                    D. Rekomendasi Remaja
+                </button>
+                <button onclick="showSubBab(5)" id="sub-btn-5" class="sub-pill bg-sky-50 hover:bg-sky-100 text-sky-900 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition">
+                    E. Piramida Aktivitas & FITT
+                </button>
+            </div>
+
+            <!-- SUB BAB A: RISIKO KESEHATAN AKIBAT GAYA HIDUP -->
+            <div id="subbab-1" class="subbab-content fade-in space-y-6">
+                <div class="bg-white/95 rounded-3xl p-6 sm:p-8 shadow-md border border-sky-200">
+                    <div class="flex flex-col lg:flex-row items-center justify-between gap-6 mb-6">
+                        <div class="space-y-3 flex-1">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl font-bold">
+                                    <i class="fas fa-shield-heart"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Sub Bab A</span>
+                                    <h2 class="font-display text-2xl font-extrabold text-slate-900">Risiko Kesehatan Akibat Gaya Hidup</h2>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 leading-relaxed">
+                                <strong>Gaya hidup (lifestyle)</strong> adalah gambaran tingkah laku, pola, dan cara hidup yang ditunjukkan melalui aktivitas sehari-hari, minat, serta cara seseorang memandang dirinya. Pada usia remaja SMP/MTs, aktivitas kalian sangat padat—mulai dari belajar di madrasah, berorganisasi, bermain, hingga berolahraga. Kondisi tubuh yang prima adalah modal utamanya.
+                            </p>
+                        </div>
+
+                        <!-- Ilustrasi SVG Sub Bab A: Persimpangan Pilihan Gaya Hidup Remaja -->
+                        <div class="w-full max-w-xs bg-sky-50 border border-sky-200 rounded-2xl p-4 text-center flex-shrink-0">
+                            <svg viewBox="0 0 260 150" class="w-full h-auto mx-auto">
+                                <rect x="10" y="10" width="240" height="130" rx="16" fill="#e0f2fe"/>
+                                <!-- Jalur Sehat (Kiri) -->
+                                <path d="M130,130 Q130,85 65,45" stroke="#0284c7" stroke-width="10" fill="none" stroke-linecap="round"/>
+                                <circle cx="55" cy="40" r="22" fill="#0ea5e9"/>
+                                <text x="55" y="45" text-anchor="middle" font-size="18">🏃</text>
+                                <text x="55" y="74" text-anchor="middle" font-size="9" font-weight="bold" fill="#0369a1">Sehat & Bugar</text>
+                                <!-- Jalur Tidak Sehat (Kanan) -->
+                                <path d="M130,130 Q130,85 195,45" stroke="#f43f5e" stroke-width="10" fill="none" stroke-dasharray="6,4" stroke-linecap="round"/>
+                                <circle cx="205" cy="40" r="22" fill="#fda4af"/>
+                                <text x="205" y="45" text-anchor="middle" font-size="18">🍔</text>
+                                <text x="205" y="74" text-anchor="middle" font-size="9" font-weight="bold" fill="#be123c">Risiko Penyakit</text>
+                                <!-- Titik Pilihan Remaja -->
+                                <circle cx="130" cy="122" r="14" fill="#fbbf24" stroke="#fff" stroke-width="3"/>
+                                <text x="130" y="126" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">?</text>
+                            </svg>
+                            <span class="text-[11px] font-semibold text-sky-800 block mt-1">Ilustrasi 6.1: Pilihan Gaya Hidup Menentukan Kesehatanmu</span>
+                        </div>
+                    </div>
+
+                    <!-- Perbandingan Interaktif Gaya Hidup -->
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-sky-50/80 border border-sky-200 rounded-2xl p-5">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="font-bold text-sky-900 text-lg flex items-center gap-2">
+                                    <i class="fas fa-check-circle text-sky-600"></i> Gaya Hidup Sehat
+                                </h3>
+                                <span class="text-xs bg-sky-600 text-white px-2.5 py-1 rounded-full font-semibold">Komitmen Jangka Panjang</span>
+                            </div>
+                            <p class="text-sm text-emerald-800 mb-3">
+                                Upaya berkelanjutan dalam menjaga dan mendukung fungsi tubuh agar berdampak positif bagi fisik dan mental.
+                            </p>
+                            <ul class="space-y-2 text-sm text-slate-700">
+                                <li class="flex items-start gap-2"><i class="fas fa-running text-emerald-600 mt-1"></i> Berolahraga secara rutin (meningkatkan kepercayaan diri & kesehatan jantung).</li>
+                                <li class="flex items-start gap-2"><i class="fas fa-apple-alt text-emerald-600 mt-1"></i> Mengonsumsi makanan bergizi seimbang.</li>
+                                <li class="flex items-start gap-2"><i class="fas fa-bed text-emerald-600 mt-1"></i> Istirahat dan tidur yang cukup (8–9 jam).</li>
+                                <li class="flex items-start gap-2"><i class="fas fa-smile-beam text-emerald-600 mt-1"></i> Melakukan kegiatan positif untuk menghindari stres.</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-rose-50/70 border border-rose-200 rounded-2xl p-5">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="font-bold text-rose-900 text-lg flex items-center gap-2">
+                                    <i class="fas fa-exclamation-triangle text-rose-600"></i> Gaya Hidup Tidak Sehat
+                                </h3>
+                                <span class="text-xs bg-rose-600 text-white px-2.5 py-1 rounded-full font-semibold">Menurunkan Imunitas</span>
+                            </div>
+                            <p class="text-sm text-rose-800 mb-3">
+                                Pola aktivitas sehari-hari yang menurunkan status kesehatan dan memicu timbulnya berbagai penyakit.
+                            </p>
+                            <ul class="space-y-2 text-sm text-slate-700">
+                                <li class="flex items-start gap-2"><i class="fas fa-hamburger text-rose-600 mt-1"></i> Pola makan buruk (tinggi gula, garam, lemak, & minim serat).</li>
+                                <li class="flex items-start gap-2"><i class="fas fa-couch text-rose-600 mt-1"></i> Kurang bergerak / minim aktivitas fisik.</li>
+                                <li class="flex items-start gap-2"><i class="fas fa-mobile-alt text-rose-600 mt-1"></i> Bermain gawai berlebihan & sering bergadang.</li>
+                                <li class="flex items-start gap-2"><i class="fas fa-smoking text-rose-600 mt-1"></i> Kebiasaan merokok (konvensional maupun vape).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Mini Simulator Risiko Gaya Hidup -->
+                    <div class="bg-gradient-to-r from-sky-900 to-blue-950 text-white rounded-2xl p-6">
+                        <h4 class="font-display font-bold text-lg text-amber-300 mb-2">
+                            <i class="fas fa-sliders-h mr-2"></i>Simulasi Cek Risiko Gaya Hidup Remaja
+                        </h4>
+                        <p class="text-xs sm:text-sm text-sky-200 mb-4">Geser indikator kebiasaan harianmu di bawah ini untuk melihat analisis dampaknya terhadap tubuhmu:</p>
+                        
+                        <div class="grid sm:grid-cols-3 gap-4 mb-4">
+                            <div class="bg-white/10 p-3.5 rounded-xl border border-white/10">
+                                <label class="text-xs font-semibold text-sky-100 block mb-1">Durasi Tidur Malam: <span id="val-tidur" class="text-amber-300 font-bold">8 Jam</span></label>
+                                <input type="range" id="sim-tidur" min="3" max="10" value="8" oninput="updateSimulasi()" class="w-full accent-sky-400">
+                            </div>
+                            <div class="bg-white/10 p-3.5 rounded-xl border border-white/10">
+                                <label class="text-xs font-semibold text-sky-100 block mb-1">Olahraga / Hari: <span id="val-olahraga" class="text-amber-300 font-bold">60 Menit</span></label>
+                                <input type="range" id="sim-olahraga" min="0" max="90" step="15" value="60" oninput="updateSimulasi()" class="w-full accent-sky-400">
+                            </div>
+                            <div class="bg-white/10 p-3.5 rounded-xl border border-white/10">
+                                <label class="text-xs font-semibold text-sky-100 block mb-1">Screen Time Gawai: <span id="val-gawai" class="text-amber-300 font-bold">2 Jam</span></label>
+                                <input type="range" id="sim-gawai" min="1" max="10" value="2" oninput="updateSimulasi()" class="w-full accent-rose-400">
+                            </div>
+                        </div>
+
+                        <div id="hasil-simulasi" class="bg-sky-800/80 border border-sky-400/40 rounded-xl p-4 text-sm text-sky-50">
+                            <strong>Status Optimal:</strong> Pola istirahat, aktivitas fisik, dan penggunaan gawaimu sangat ideal untuk mendukung pertumbuhan serta fokus belajar di MTsN 1 Kota Malang!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUB BAB B: GAYA HIDUP TIDAK SEHAT -->
+            <div id="subbab-2" class="subbab-content hidden fade-in space-y-6">
+                <div class="bg-white/95 rounded-3xl p-6 sm:p-8 shadow-md border border-sky-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-700 flex items-center justify-center text-xl font-bold">
+                            <i class="fas fa-biohazard"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-rose-600">Sub Bab B</span>
+                            <h2 class="font-display text-2xl font-extrabold text-slate-900">4 Perilaku Gaya Hidup Tidak Sehat pada Pelajar</h2>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 mb-6">Perhatikan ilustrasi dan penjelasan masing-masing kartu di bawah ini untuk membedah bahaya tersembunyi di balik kebiasaan yang sering dianggap sepele oleh remaja:</p>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- 1. Pola Makan Buruk -->
+                        <div class="border border-sky-200 rounded-2xl p-5 hover:border-amber-400 transition bg-gradient-to-b from-white to-amber-50/40">
+                            <div class="flex items-center justify-between gap-3 mb-3">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-lg"><i class="fas fa-pizza-slice"></i></span>
+                                    <h3 class="font-bold text-lg text-slate-900">1. Pola Makan Buruk (Fast Food)</h3>
+                                </div>
+                                <!-- Ilustrasi SVG Fast Food vs Obesitas -->
+                                <svg viewBox="0 0 80 55" class="w-16 h-12 flex-shrink-0">
+                                    <rect x="4" y="4" width="72" height="47" rx="10" fill="#fef3c7"/>
+                                    <text x="26" y="34" text-anchor="middle" font-size="22">🍔</text>
+                                    <text x="56" y="34" text-anchor="middle" font-size="20">🥤</text>
+                                    <line x1="12" y1="10" x2="68" y2="45" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-slate-600 leading-relaxed mb-3">
+                                Makanan cepat saji (pizza, burger, keripik, minuman berpemanis) memiliki <strong>kepadatan energi tinggi</strong> (tinggi lemak jenuh, gula, dan garam) namun sangat rendah serat dan vitamin.
+                            </p>
+                            <div class="bg-amber-100/80 p-3 rounded-xl text-xs text-amber-900">
+                                <strong>Dampak Utama:</strong> Ketidakseimbangan energi yang memicu kelebihan berat badan, <strong>obesitas</strong>, serta risiko penyakit degeneratif sejak dini.
+                            </div>
+                        </div>
+
+                        <!-- 2. Merokok & Vape -->
+                        <div class="border border-sky-200 rounded-2xl p-5 hover:border-rose-400 transition bg-gradient-to-b from-white to-rose-50/40">
+                            <div class="flex items-center justify-between gap-3 mb-3">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-10 h-10 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center text-lg"><i class="fas fa-smoking-ban"></i></span>
+                                    <h3 class="font-bold text-lg text-slate-900">2. Merokok (Konvensional & Vape)</h3>
+                                </div>
+                                <!-- Ilustrasi SVG Anatomi Racun Rokok -->
+                                <svg viewBox="0 0 90 55" class="w-20 h-12 flex-shrink-0">
+                                    <rect x="4" y="4" width="82" height="47" rx="10" fill="#ffe4e6"/>
+                                    <rect x="14" y="24" width="44" height="8" rx="2" fill="#ffffff" stroke="#94a3b8"/>
+                                    <rect x="14" y="24" width="14" height="8" rx="1" fill="#d97706"/>
+                                    <rect x="58" y="24" width="6" height="8" fill="#ef4444"/>
+                                    <path d="M68,22 Q74,14 68,8" stroke="#64748b" stroke-width="2" fill="none"/>
+                                    <text x="45" y="44" text-anchor="middle" font-size="7" font-weight="bold" fill="#be123c">4.000 ZAT BERACUN</text>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-slate-600 leading-relaxed mb-3">
+                                Sebatang rokok mengandung <strong>4.000 senyawa kimia beracun</strong>! Tiga komponen utamanya: <strong>Nikotin</strong> (zat adiktif/kecanduan), <strong>Tar</strong> (bersifat karsinogenik/pemicu kanker), dan <strong>Karbon Monoksida (CO)</strong> (mengikat hemoglobin sehingga mengurangi oksigen dalam darah).
+                            </p>
+                            <div class="bg-rose-100/80 p-3 rounded-xl text-xs text-rose-900 space-y-1">
+                                <div>• <strong>Paru-paru:</strong> Menghambat pematangan paru remaja (merokok 20 hari pada remaja setara kerusakan perokok dewasa 40 tahun).</div>
+                                <div>• <strong>Gigi & Mulut:</strong> Mulut kering, karang gigi, periodontitis (radang gusi), hingga kanker mulut.</div>
+                                <div>• <strong>Zat Berbahaya Lain:</strong> Aseton (penghapus cat), Arsenik (racun), Formalin, & Hidrogen Sianida.</div>
+                            </div>
+                        </div>
+
+                        <!-- 3. Penggunaan Gawai Berlebihan -->
+                        <div class="border border-sky-200 rounded-2xl p-5 hover:border-indigo-400 transition bg-gradient-to-b from-white to-indigo-50/40">
+                            <div class="flex items-center justify-between gap-3 mb-3">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-lg"><i class="fas fa-mobile-screen-button"></i></span>
+                                    <h3 class="font-bold text-lg text-slate-900">3. Penggunaan Gawai Berlebihan</h3>
+                                </div>
+                                <!-- Ilustrasi SVG Mata Lelah / CVS -->
+                                <svg viewBox="0 0 80 55" class="w-16 h-12 flex-shrink-0">
+                                    <rect x="4" y="4" width="72" height="47" rx="10" fill="#e0e7ff"/>
+                                    <text x="27" y="34" text-anchor="middle" font-size="20">📱</text>
+                                    <text x="55" y="34" text-anchor="middle" font-size="20">👀</text>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-slate-600 leading-relaxed mb-3">
+                                Menatap layar ponsel/komputer terlalu lama memicu <strong>Computer Vision Syndrome (CVS)</strong> dengan gejala: mata merah/kering, penglihatan ganda/buram, sakit kepala, pegal di area alis/leher, serta merangsang <strong>miopia (rabun jauh)</strong>.
+                            </p>
+                            <div class="bg-indigo-100/80 p-3 rounded-xl text-xs text-indigo-900">
+                                <strong>Solusi Mengatasi Kecanduan Gawai:</strong> Atur batas jam bermain gadget, matikan notifikasi medsos yang tidak perlu, aktif berorganisasi di sekolah, dan perbanyak olahraga fisik.
+                            </div>
+                        </div>
+
+                        <!-- 4. Kebiasaan Bergadang -->
+                        <div class="border border-sky-200 rounded-2xl p-5 hover:border-purple-400 transition bg-gradient-to-b from-white to-purple-50/40">
+                            <div class="flex items-center justify-between gap-3 mb-3">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center text-lg"><i class="fas fa-moon"></i></span>
+                                    <h3 class="font-bold text-lg text-slate-900">4. Kebiasaan Bergadang</h3>
+                                </div>
+                                <!-- Ilustrasi SVG Jam Malam -->
+                                <svg viewBox="0 0 80 55" class="w-16 h-12 flex-shrink-0">
+                                    <rect x="4" y="4" width="72" height="47" rx="10" fill="#f3e8ff"/>
+                                    <text x="28" y="34" text-anchor="middle" font-size="20">🌙</text>
+                                    <text x="55" y="34" text-anchor="middle" font-size="20">🥱</text>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-slate-600 leading-relaxed mb-3">
+                                Tidur larut malam karena bermain gim atau nongkrong menurunkan kemampuan kognitif, konsentrasi belajar, dan kestabilan emosi (mudah cemas/depresi).
+                            </p>
+                            <div class="bg-purple-100/80 p-3 rounded-xl text-xs text-purple-900">
+                                <strong>Dampak Biologis:</strong> Mengganggu produksi <strong>sitokin</strong> (senyawa sistem kekebalan tubuh melawan infeksi) dan mengacaukan jam makan malam sehingga memicu obesitas.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUB BAB C: KESEHATAN MENTAL -->
+            <div id="subbab-3" class="subbab-content hidden fade-in space-y-6">
+                <div class="bg-white/95 rounded-3xl p-6 sm:p-8 shadow-md border border-sky-200">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-6">
+                        <div class="space-y-3 flex-1">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl font-bold">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Sub Bab C</span>
+                                    <h2 class="font-display text-2xl font-extrabold text-slate-900">Kesehatan Mental Remaja</h2>
+                                </div>
+                            </div>
+                            <div class="bg-sky-50 border-l-4 border-sky-600 p-4 rounded-r-2xl">
+                                <p class="text-sm sm:text-base text-sky-950 font-medium">
+                                    "Hidup sehat adalah hidup dengan bebas dari semua masalah, baik masalah <strong>jasmani (fisik)</strong> maupun masalah <strong>rohani (mental)</strong>. Kesehatan mental yang baik adalah keadaan pikiran dan jiwa yang tenang serta tenteram."
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Ilustrasi SVG Keseimbangan Fisik & Mental -->
+                        <div class="w-full max-w-xs bg-sky-50 border border-sky-200 rounded-2xl p-4 text-center flex-shrink-0">
+                            <svg viewBox="0 0 240 130" class="w-full h-auto mx-auto">
+                                <rect x="10" y="10" width="220" height="110" rx="16" fill="#e0f2fe"/>
+                                <!-- Timbangan Keseimbangan -->
+                                <polygon points="120,45 108,105 132,105" fill="#0284c7"/>
+                                <line x1="50" y1="45" x2="190" y2="45" stroke="#0369a1" stroke-width="5" stroke-linecap="round"/>
+                                <circle cx="55" cy="45" r="22" fill="#38bdf8"/>
+                                <text x="55" y="50" text-anchor="middle" font-size="18">💪</text>
+                                <text x="55" y="80" text-anchor="middle" font-size="9" font-weight="bold" fill="#0369a1">Sehat Jasmani</text>
+                                <circle cx="185" cy="45" r="22" fill="#fbbf24"/>
+                                <text x="185" y="50" text-anchor="middle" font-size="18">😊</text>
+                                <text x="185" y="80" text-anchor="middle" font-size="9" font-weight="bold" fill="#92400e">Sehat Mental</text>
+                            </svg>
+                            <span class="text-[11px] font-semibold text-sky-800 block mt-1">Ilustrasi 6.2: Harmoni Kesehatan Fisik & Jiwa</span>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Ciri Mental Sehat -->
+                        <div class="bg-white border-2 border-emerald-100 rounded-2xl p-5 shadow-sm">
+                            <h3 class="font-bold text-emerald-800 text-lg mb-4 flex items-center gap-2">
+                                <i class="fas fa-sun text-amber-500"></i> 8 Ciri Remaja Bermental Sehat
+                            </h3>
+                            <div class="grid grid-cols-1 gap-2.5 text-sm">
+                                <div class="flex items-center gap-2.5 bg-emerald-50/60 p-2.5 rounded-xl">
+                                    <span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs flex items-center justify-center font-bold">1</span>
+                                    <span>Merasa lebih bahagia, positif, dan menikmati hidup.</span>
+                                </div>
+                                <div class="flex items-center gap-2.5 bg-emerald-50/60 p-2.5 rounded-xl">
+                                    <span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs flex items-center justify-center font-bold">2</span>
+                                    <span>Mampu bangkit kembali (resilien) dari kekesalan & kekecewaan.</span>
+                                </div>
+                                <div class="flex items-center gap-2.5 bg-emerald-50/60 p-2.5 rounded-xl">
+                                    <span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs flex items-center justify-center font-bold">3</span>
+                                    <span>Memiliki hubungan harmonis dengan keluarga dan teman.</span>
+                                </div>
+                                <div class="flex items-center gap-2.5 bg-emerald-50/60 p-2.5 rounded-xl">
+                                    <span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs flex items-center justify-center font-bold">4</span>
+                                    <span>Rutin melakukan aktivitas fisik dan makan makanan sehat.</span>
+                                </div>
+                                <div class="flex items-center gap-2.5 bg-emerald-50/60 p-2.5 rounded-xl">
+                                    <span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs flex items-center justify-center font-bold">5</span>
+                                    <span>Aktif terlibat dalam kegiatan positif di sekolah/masyarakat.</span>
+                                </div>
+                                <div class="flex items-center gap-2.5 bg-emerald-50/60 p-2.5 rounded-xl">
+                                    <span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs flex items-center justify-center font-bold">6</span>
+                                    <span>Memiliki rasa pencapaian dan menghargai diri sendiri.</span>
+                                </div>
+                                <div class="flex items-center gap-2.5 bg-emerald-50/60 p-2.5 rounded-xl">
+                                    <span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs flex items-center justify-center font-bold">7</span>
+                                    <span>Bisa bersantai dengan tenang dan tidur nyenyak.</span>
+                                </div>
+                                <div class="flex items-center gap-2.5 bg-emerald-50/60 p-2.5 rounded-xl">
+                                    <span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs flex items-center justify-center font-bold">8</span>
+                                    <span>Merasa aman dan nyaman di lingkungan komunitasnya.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Gejala Gangguan Mental -->
+                        <div class="bg-white border-2 border-rose-100 rounded-2xl p-5 shadow-sm flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-bold text-rose-800 text-lg mb-4 flex items-center gap-2">
+                                    <i class="fas fa-exclamation-circle text-rose-600"></i> Waspadai Gejala Gangguan Mental
+                                </h3>
+                                <p class="text-sm text-slate-600 mb-4">
+                                    Tekanan stres berkepanjangan, perundungan (bullying), atau lingkungan tidak aman dapat mengganggu kesehatan jiwa remaja. Kenali gejalanya sejak dini:
+                                </p>
+                                <ul class="space-y-2.5 text-sm text-slate-700">
+                                    <li class="p-2.5 rounded-xl bg-rose-50 flex items-center gap-2.5"><i class="fas fa-random text-rose-500"></i> Perubahan perilaku dan kebiasaan secara drastis.</li>
+                                    <li class="p-2.5 rounded-xl bg-rose-50 flex items-center gap-2.5"><i class="fas fa-bolt text-rose-500"></i> Perubahan suasana hati (mood) secara tiba-tiba.</li>
+                                    <li class="p-2.5 rounded-xl bg-rose-50 flex items-center gap-2.5"><i class="fas fa-eye-slash text-rose-500"></i> Kesulitan berkonsentrasi saat belajar.</li>
+                                    <li class="p-2.5 rounded-xl bg-rose-50 flex items-center gap-2.5"><i class="fas fa-weight text-rose-500"></i> Penurunan berat badan atau gangguan pola makan.</li>
+                                    <li class="p-2.5 rounded-xl bg-rose-50 flex items-center gap-2.5"><i class="fas fa-ghost text-rose-500"></i> Perasaan takut atau cemas yang berlebihan.</li>
+                                    <li class="p-2.5 rounded-xl bg-rose-50 flex items-center gap-2.5"><i class="fas fa-band-aid text-rose-500"></i> Kecenderungan menyakiti diri sendiri (segera cari bantuan guru BK/orang tua).</li>
+                                </ul>
+                            </div>
+
+                            <div class="mt-6 bg-slate-100 p-4 rounded-xl text-xs text-slate-700">
+                                <strong>Tips Jaga Mental:</strong> Jangan memendam masalah sendirian. Berceritalah kepada orang tua, sahabat terpercaya, wali kelas, atau guru BK di MTsN 1 Kota Malang, serta salurkan emosi melalui olahraga!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUB BAB D: REKOMENDASI HIDUP SEHAT BAGI REMAJA -->
+            <div id="subbab-4" class="subbab-content hidden fade-in space-y-6">
+                <div class="bg-white/95 rounded-3xl p-6 sm:p-8 shadow-md border border-sky-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl font-bold">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Sub Bab D</span>
+                            <h2 class="font-display text-2xl font-extrabold text-slate-900">6 Rekomendasi Hidup Sehat Remaja (Kemenkes RI)</h2>
+                        </div>
+                    </div>
+
+                    <!-- Visualisasi Interaktif "Isi Piringku" dengan Ilustrasi Makanan Lengkap -->
+                    <div class="bg-gradient-to-r from-sky-50 to-blue-50 border border-sky-200 rounded-2xl p-6 mb-6">
+                        <div class="flex flex-col md:flex-row items-center gap-6">
+                            <!-- SVG Piring Gizi Seimbang dengan Ikon Makanan -->
+                            <div class="w-52 h-52 flex-shrink-0">
+                                <svg viewBox="0 0 220 220" class="w-full h-full drop-shadow-md">
+                                    <circle cx="110" cy="110" r="102" fill="#ffffff" stroke="#7dd3fc" stroke-width="5"/>
+                                    <!-- Makanan Pokok (Kiri Bawah ~33%) -->
+                                    <path d="M110,110 L110,202 A92,92 0 0,1 30,64 Z" fill="#8b5cf6" opacity="0.9"/>
+                                    <!-- Lauk Pauk (Kiri Atas ~17%) -->
+                                    <path d="M110,110 L30,64 A92,92 0 0,1 110,18 Z" fill="#f59e0b" opacity="0.9"/>
+                                    <!-- Buah-buahan (Kanan Atas ~17%) -->
+                                    <path d="M110,110 L110,18 A92,92 0 0,1 190,64 Z" fill="#84cc16" opacity="0.9"/>
+                                    <!-- Sayuran (Kanan Bawah ~33%) -->
+                                    <path d="M110,110 L190,64 A92,92 0 0,1 110,202 Z" fill="#10b981" opacity="0.9"/>
+                                    <circle cx="110" cy="110" r="22" fill="#ffffff" stroke="#bae6fd" stroke-width="2"/>
+                                    <text x="110" y="108" text-anchor="middle" font-size="8" font-weight="bold" fill="#0369a1">ISI</text>
+                                    <text x="110" y="118" text-anchor="middle" font-size="8" font-weight="bold" fill="#0369a1">PIRINGKU</text>
+                                    
+                                    <!-- Ikon & Label Makanan -->
+                                    <text x="64" y="135" text-anchor="middle" font-size="18">🍚🥔</text>
+                                    <text x="64" y="152" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">Pokok</text>
+                                    
+                                    <text x="74" y="62" text-anchor="middle" font-size="16">🍗🐟</text>
+                                    <text x="74" y="77" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">Lauk</text>
+                                    
+                                    <text x="146" y="62" text-anchor="middle" font-size="16">🍌🍉</text>
+                                    <text x="146" y="77" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">Buah</text>
+                                    
+                                    <text x="156" y="135" text-anchor="middle" font-size="18">🥦🥕</text>
+                                    <text x="156" y="152" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">Sayur</text>
+                                </svg>
+                            </div>
+                            <div class="space-y-2">
+                                <span class="bg-sky-600 text-white text-xs font-bold px-3 py-1 rounded-full">Gambar 6.5 • Pedoman Gizi Seimbang</span>
+                                <h3 class="font-display text-xl font-bold text-sky-950">Konsep "Isi Piringku" Sekali Makan</h3>
+                                <p class="text-sm text-slate-700 leading-relaxed">
+                                    Separuh piring makanmu dikhususkan untuk <strong>sayur dan buah</strong>, sedangkan separuh lainnya untuk <strong>makanan pokok</strong> (nasi, kentang, jagung, ubi) dan <strong>lauk-pauk</strong> (hewani seperti ikan/ayam/telur & nabati seperti tahu/tempe).
+                                </p>
+                                <div class="flex flex-wrap gap-2 pt-1 text-xs font-semibold text-sky-900">
+                                    <span class="bg-white px-3 py-1 rounded-lg border border-sky-200">💧 Minum Air Putih Min. 8 Gelas/Hari</span>
+                                    <span class="bg-white px-3 py-1 rounded-lg border border-sky-200">🧼 Cuci Tangan Pakai Sabun</span>
+                                    <span class="bg-white px-3 py-1 rounded-lg border border-sky-200">💊 Tablet Tambah Darah (Remaja Putri 1x/minggu)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6 Pilar Rekomendasi -->
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="p-4 rounded-2xl border border-sky-200 bg-sky-50/40">
+                            <div class="text-sky-700 font-bold text-base mb-1.5"><i class="fas fa-shower mr-1.5"></i>1. Kebersihan Diri</div>
+                            <p class="text-xs text-slate-600 leading-relaxed">Mandi & sikat gigi 2x sehari, keramas min. 3x seminggu, potong kuku 1x seminggu, tidak berbagi handuk, dan buang sampah pada tempatnya.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl border border-sky-200 bg-sky-50/40">
+                            <div class="text-sky-700 font-bold text-base mb-1.5"><i class="fas fa-utensils mr-1.5"></i>2. Gizi Seimbang</div>
+                            <p class="text-xs text-slate-600 leading-relaxed">Terapkan porsi <em>Isi Piringku</em> karena tidak ada satu jenis makanan pun yang mengandung seluruh nutrisi yang dibutuhkan tubuh remaja.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl border border-sky-200 bg-sky-50/40">
+                            <div class="text-sky-700 font-bold text-base mb-1.5"><i class="fas fa-clock mr-1.5"></i>3. Pola Makan Sehat</div>
+                            <p class="text-xs text-slate-600 leading-relaxed">Makan teratur 3x sehari, batasi gula-garam-lemak (GGL), cek tanggal kedaluwarsa kemasan, dan cukupi cairan tubuh.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl border border-sky-200 bg-sky-50/40">
+                            <div class="text-sky-700 font-bold text-base mb-1.5"><i class="fas fa-user-shield mr-1.5"></i>4. Kesehatan Reproduksi</div>
+                            <p class="text-xs text-slate-600 leading-relaxed"><strong>Putra:</strong> Bersihkan alat kelamin, ganti celana dalam rutin, hindari celana ketat, disarankan khitan.<br><strong>Putri:</strong> Ganti pembalut tiap 4 jam saat haid, basuh dari arah depan ke belakang.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl border border-sky-200 bg-sky-50/40">
+                            <div class="text-sky-700 font-bold text-base mb-1.5"><i class="fas fa-running mr-1.5"></i>5. Aktivitas Fisik (>60 Menit)</div>
+                            <p class="text-xs text-slate-600 leading-relaxed">Remaja usia 7–18 tahun dianjurkan aktivitas fisik intensitas sedang-berat >60 menit/hari (jalan kaki, bersepeda, sepak bola, berenang, senam) dengan prinsip <strong>FITT</strong> (Frequency, Intensity, Time, Type).</p>
+                        </div>
+                        <div class="p-4 rounded-2xl border border-sky-200 bg-sky-50/40">
+                            <div class="text-sky-700 font-bold text-base mb-1.5"><i class="fas fa-bed mr-1.5"></i>6. Istirahat Cukup (8–9 Jam)</div>
+                            <p class="text-xs text-slate-600 leading-relaxed">Usia 12–18 tahun membutuhkan tidur 8–9 jam setiap malam untuk pemulihan sel tubuh, menjaga kestabilan emosi, dan daya ingat saat belajar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUB BAB E: MERANCANG & MEMONITOR AKTIVITAS JASMANI (PRINSIP FITT & PIRAMIDA) -->
+            <div id="subbab-5" class="subbab-content hidden fade-in space-y-6">
+                <div class="bg-white/95 rounded-3xl p-6 sm:p-8 shadow-md border border-sky-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl font-bold">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Sub Bab E • Halaman 172–175</span>
+                            <h2 class="font-display text-2xl font-extrabold text-slate-900">Prinsip FITT & Piramida Aktivitas Jasmani Remaja</h2>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        Sebelum merancang program olahraga agar efektif dan aman dari cedera, siswa kelas VII perlu menerapkan <strong>Prinsip FITT</strong> dan berpedoman pada <strong>6 Langkah Piramida Aktivitas Jasmani Remaja</strong> (<em>Fitness Life Middle School</em>).
+                    </p>
+
+                    <!-- 4 Kartu Prinsip FITT -->
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                        <div class="bg-sky-50 border border-sky-200 p-4 rounded-2xl">
+                            <div class="text-2xl font-display font-extrabold text-sky-700 mb-1">F — Frequency</div>
+                            <div class="text-xs font-bold text-slate-800 mb-1">Frekuensi Latihan</div>
+                            <p class="text-xs text-slate-600">Seberapa sering kamu berolahraga dalam seminggu (misal: 3–5 kali per minggu).</p>
+                        </div>
+                        <div class="bg-blue-50 border border-blue-200 p-4 rounded-2xl">
+                            <div class="text-2xl font-display font-extrabold text-blue-700 mb-1">I — Intensity</div>
+                            <div class="text-xs font-bold text-slate-800 mb-1">Intensitas Latihan</div>
+                            <p class="text-xs text-slate-600">Seberapa berat usaha/ulangan latihan yang dilakukan (ringan, sedang, hingga cukup berat).</p>
+                        </div>
+                        <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl">
+                            <div class="text-2xl font-display font-extrabold text-amber-700 mb-1">T — Time</div>
+                            <div class="text-xs font-bold text-slate-800 mb-1">Waktu / Durasi</div>
+                            <p class="text-xs text-slate-600">Berapa lama waktu yang dihabiskan dalam satu sesi latihan (remaja dianjurkan >60 menit/hari).</p>
+                        </div>
+                        <div class="bg-indigo-50 border border-indigo-200 p-4 rounded-2xl">
+                            <div class="text-2xl font-display font-extrabold text-indigo-700 mb-1">T — Type</div>
+                            <div class="text-xs font-bold text-slate-800 mb-1">Tipe / Jenis Olahraga</div>
+                            <p class="text-xs text-slate-600">Jenis aktivitas fisik yang dipilih sesuai minat (aerobik, sepak bola, renang, senam, atau latihan otot).</p>
+                        </div>
+                    </div>
+
+                    <!-- Visualisasi Tangga Piramida 6 Langkah dengan Ikon Visual -->
+                    <h3 class="font-display font-bold text-lg text-slate-900 mb-3"><i class="fas fa-stairs text-sky-600 mr-2"></i>6 Langkah Piramida Aktivitas Jasmani Remaja</h3>
+                    <div class="space-y-2.5 max-w-3xl mx-auto">
+                        <div class="bg-rose-600 text-white p-3 rounded-xl text-center text-xs sm:text-sm font-bold shadow-sm max-w-xs mx-auto">
+                            ⚖️ Langkah 6: Skala Keseimbangan (Energi Masuk = Energi Keluar)
+                        </div>
+                        <div class="bg-amber-500 text-white p-3 rounded-xl text-center text-xs sm:text-sm font-semibold shadow-sm max-w-md mx-auto">
+                            🧘 Langkah 5: Latihan Kelentukan / Peregangan (2–3 hari/minggu, akhir latihan)
+                        </div>
+                        <div class="bg-indigo-600 text-white p-3 rounded-xl text-center text-xs sm:text-sm font-semibold shadow-sm max-w-lg mx-auto">
+                            💪 Langkah 4: Latihan Otot & Kebugaran (Push-up, Curl-up • Min. 2 hari/minggu)
+                        </div>
+                        <div class="bg-blue-600 text-white p-3 rounded-xl text-center text-xs sm:text-sm font-semibold shadow-sm max-w-xl mx-auto">
+                            🏀 Langkah 3: Olahraga Aerobik & Rekreasi (Basket, Futsal, Bulu Tangkis • Min. 20 mnt, 3x/minggu)
+                        </div>
+                        <div class="bg-sky-600 text-white p-3 rounded-xl text-center text-xs sm:text-sm font-semibold shadow-sm max-w-2xl mx-auto">
+                            🚴 Langkah 2: Aktivitas Aerobik Rutin (Joging, Bersepeda, Berenang)
+                        </div>
+                        <div class="bg-sky-800 text-white p-3.5 rounded-xl text-center text-xs sm:text-sm font-bold shadow-sm w-full">
+                            🚶 Langkah 1 (Fondasi): Aktivitas Fisik Sedang Harian (Jalan ke sekolah, naik tangga, berkebun • Min. 30 menit/hari)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECTION BARU: LAB FITT, KALORI & MITOS/FAKTA -->
+        <!-- ========================================== -->
+        <section id="section-fitur-ekstra" class="hidden fade-in space-y-8">
+            
+            <!-- FITUR 1: ICE BREAKING MITOS VS FAKTA -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                    <div>
+                        <span class="bg-amber-100 text-amber-800 text-xs font-extrabold px-3 py-1 rounded-full">Ice Breaking Kelas • Pemantik Diskusi</span>
+                        <h2 class="font-display text-2xl font-extrabold text-slate-900 mt-1">Tantangan Kilat: Mitos atau Fakta?</h2>
+                    </div>
+                    <button onclick="resetMitosFakta()" class="text-xs font-semibold text-emerald-700 hover:underline self-start sm:self-center">
+                        <i class="fas fa-sync-alt mr-1"></i> Reset Kartu
+                    </button>
+                </div>
+                <p class="text-sm text-slate-600 mb-5">Klik tombol <strong>MITOS</strong> atau <strong>FAKTA</strong> pada setiap pernyataan kesehatan remaja berikut untuk menguji wawasanmu!</p>
+
+                <div id="mitos-fakta-container" class="grid md:grid-cols-2 gap-4"></div>
+            </div>
+
+            <!-- FITUR 2: KALKULATOR KALORI HARIAN (PENGAYAAN HLM. 178-180) -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl font-bold">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Pengayaan Buku PJOK Hlm. 178–180</span>
+                        <h2 class="font-display text-2xl font-extrabold text-slate-900">Kalkulator Kalori Menu Makan Harian</h2>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-600 mb-6">Pilih menu makanan dan buah-buahan sesuai daftar kalori resmi di buku PJOK Kelas VII untuk menghitung total asupan energimu hari ini:</p>
+
+                <div class="grid md:grid-cols-3 gap-4 mb-6">
+                    <!-- Sarapan -->
+                    <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-3">
+                        <h3 class="font-bold text-emerald-800 text-sm flex items-center gap-2"><i class="fas fa-sun text-amber-500"></i> Menu Sarapan</h3>
+                        <select id="kal-sarapan-pokok" onchange="hitungKalori()" class="w-full p-2.5 rounded-xl border border-slate-300 text-xs bg-white">
+                            <option value="0">-- 1. Pilih Makanan Pokok --</option>
+                            <option value="175">Nasi putih (100 gr) — 175 kkal</option>
+                            <option value="110">Nasi merah (100 gr) — 110 kkal</option>
+                            <option value="87">Kentang rebus (100 gr) — 87 kkal</option>
+                            <option value="86">Ubi jalar (100 gr) — 86 kkal</option>
+                            <option value="160">Singkong (100 gr) — 160 kkal</option>
+                            <option value="66">Roti putih (1 iris) — 66 kkal</option>
+                            <option value="67">Roti gandum (1 iris) — 67 kkal</option>
+                            <option value="350">Mi goreng instan (80 gr) — 350 kkal</option>
+                        </select>
+                        <select id="kal-sarapan-lauk" onchange="hitungKalori()" class="w-full p-2.5 rounded-xl border border-slate-300 text-xs bg-white">
+                            <option value="0">-- 2. Pilih Lauk-Pauk --</option>
+                            <option value="216">Dada ayam goreng + kulit (100 gr) — 216 kkal</option>
+                            <option value="184">Dada ayam goreng tanpa kulit (100 gr) — 184 kkal</option>
+                            <option value="199">Telur orak-arik (2 btr sedang) — 199 kkal</option>
+                            <option value="68">Telur rebus (1 btr sedang) — 68 kkal</option>
+                            <option value="93">Telur dadar (1 btr besar) — 93 kkal</option>
+                            <option value="92">Telur ceplok (1 btr besar) — 92 kkal</option>
+                            <option value="118">Tempe goreng (1 porsi) — 118 kkal</option>
+                            <option value="157">Tempe bacem (1 porsi) — 157 kkal</option>
+                            <option value="119">Tahu bacem / Tahu bakso (1 porsi) — 119 kkal</option>
+                            <option value="124">Tahu isi (1 porsi) — 124 kkal</option>
+                            <option value="113">Tahu sumedang (1 porsi) — 113 kkal</option>
+                        </select>
+                        <select id="kal-sarapan-sayur" onchange="hitungKalori()" class="w-full p-2.5 rounded-xl border border-slate-300 text-xs bg-white">
+                            <option value="0">-- 3. Pilih Sayur / Buah --</option>
+                            <option value="106">Tumis labu siam (100 gr) — 106 kkal</option>
+                            <option value="155">Tumis kangkung (85 gr) — 155 kkal</option>
+                            <option value="102">Tumis kacang panjang & tempe (110 gr) — 102 kkal</option>
+                            <option value="72">Apel / Mangga manalagi (1 buah) — 72 kkal</option>
+                            <option value="105">Pisang (1 buah sedang) — 105 kkal</option>
+                            <option value="37">Jambu biji (1 buah) — 37 kkal</option>
+                            <option value="55">Jambu air (1 buah) — 55 kkal</option>
+                            <option value="62">Jeruk (1 buah) — 62 kkal</option>
+                            <option value="39">Pepaya (100 gr) — 39 kkal</option>
+                        </select>
+                        <select id="kal-sarapan-lain" onchange="hitungKalori()" class="w-full p-2.5 rounded-xl border border-slate-300 text-xs bg-white">
+                            <option value="0">-- 4. Pilih Lain-Lain / Minuman --</option>
+                            <option value="0">Air putih (1 gelas) — 0 kkal</option>
+                            <option value="122">Susu sapi segar (1 gelas / 200 ml) — 122 kkal</option>
+                            <option value="90">Teh manis hangat (1 gelas) — 90 kkal</option>
+                            <option value="117">Perkedel kentang (75 gr) — 117 kkal</option>
+                            <option value="107">Sambal goreng kentang (100 gr) — 107 kkal</option>
+                            <option value="140">Kerupuk udang / gorengan (1 porsi) — 140 kkal</option>
+                        </select>
+                    </div>
+
+                    <!-- Makan Siang -->
+                    <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-3">
+                        <h3 class="font-bold text-emerald-800 text-sm flex items-center gap-2"><i class="fas fa-cloud-sun text-orange-500"></i> Menu Makan Siang</h3>
+                        <select id="kal-siang-pokok" onchange="hitungKalori()" class="w-full p-2.5 rounded-xl border border-slate-300 text-xs bg-white">
+                            <option value="0">-- 1. Pilih Makanan Pokok --</option>
+                            <option value="175">Nasi putih (100 gr) — 175 kkal</option>
+                            <option value="110">Nasi merah (100 gr) — 110 kkal</option>
+                            <option value="87">Kentang rebus (100 gr) — 87 kkal</option>
+                            <option value="86">Ubi jalar (100 gr) — 86 kkal</option>
+                            <option value="160">Singkong (100 gr) — 160 kkal</option>
+                            <option value="66">Roti putih (1 iris) — 66 kkal</option>
+                            <option value="67">Roti gandum (1 iris) — 67 kkal</option>
+                            <option value="350">Mi goreng instan (80 gr) — 350 kkal</option>
+                        </select>
+                        <select id="kal-siang-lauk" onchange="hitungKalori()" class="w-full p-2.5 rounded-xl border border-slate-300 text-xs bg-white">
+                            <option value="0">-- 2. Pilih Lauk-Pauk --</option>
+                            <option value="216">Dada ayam goreng + kulit (100 gr) — 216 kkal</option>
+                            <option value="184">Dada ayam goreng tanpa kulit (100 gr) — 184 kkal</option>
+                            <option value="286">Bebek goreng (100 gr) — 286 kkal</option>
+                            <option value="167">Ikan kembung (100 gr) — 167 kkal</option>
+                            <option value="105">Ikan lele goreng (100 gr) — 105 kkal</option>
+                            <option value="171">Ikan salmon panggang (100 gr) — 171 kkal</option>
+                            <option value="150">Udang goreng tepung (100 gr) — 150 kkal</option>
+                            <option value="202">Bakso sapi (100 gr) — 202 kkal</option>
+                            <option value="297">Nuget ayam (100 gr) — 297 kkal</option>
+                            <option value="118">Tempe goreng (1 porsi) — 118 kkal</option>
+                            <option value="157">Tempe bacem (1 porsi) — 157 kkal</option>
+                            <option value="119">Tahu bacem / Tahu bakso (1 porsi) — 119 kkal</option>
+                            <option value="124">Tahu isi (1 porsi) — 124 kkal</option>
+                            <option value="113">Tahu sumedang (1 porsi) — 113 kkal</option>
+                        </select>
+                        <select id="kal-siang-sayur" onchange="hitungKalori()" class="w-full p-2.5 rounded-xl border border-slate-300 text-xs bg-white">
+                            <option value="0">-- 3. Pilih Sayur / Buah --</option>
+                            <option value="106">Tumis labu siam (100 gr) — 106 kkal</option>
+                            <option value="155">Tumis kangkung (85 gr) — 155 kkal</option>
+                            <option value="102">Tumis kacang panjang & tempe (110 gr) — 102 kkal</option>
+                            <option value="30">Semangka (100 gr) — 30 kkal</option>
+                            <option value="34">Melon (100 gr) — 34 kkal</option>
+                            <option value="322">Alpukat (100 gr) — 322 kkal</option>
+                            <option value="69">Anggur (100 gr) — 69 kkal</option>
+                            <option value="73">Manggis (100 gr) — 73 kkal</option>
+                            <option value="72">Mangga manalagi / Apel (1 buah) — 72 kkal</option>
+                            <option value="50">Buah naga (1 buah sedang) — 50 kkal</option>
+                            <option value="39">Pepaya (100 gr) — 39 kkal</option>
+                            <option value="8">Salak (1 buah) — 8 kkal</option>
+                        </select>
+                        <select id="kal-siang-lain" onchange="hitungKalori()" class="w-full p-2.5 rounded-xl border border-slate-300 text-xs bg-white">
+                            <option value="0">-- 4. Pilih Lain-Lain / Camilan --</option>
+                            <option value="0">Air putih (1 gelas) — 0 kkal</option>
+                            <option value="107">Sambal goreng kentang (100 gr) — 107 kkal</option>
+                            <option value="117">Perkedel kentang (75 gr) — 117 kkal</option>
+                            <option value="150">Minuman kemasan / bersoda (1 botol) — 150 kkal</option>
+                            <option value="250">Burger / Pizza / Fast Food (1 porsi) — 250 kkal</option>
+                            <option value="160">Keripik kentang / Snack kemasan — 160 kkal</option>
+                        </select>
+                    </div>
+
+                    <!-- Makan Malam -->
+                    <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-3">
+                        <h3 class="font-bold text-emerald-800 text-sm flex items-center gap-2"><i class="fas fa-moon text-indigo-500"></i> Menu Makan Malam</h3>
+                        <select id="kal-malam-pokok" onchange="hitungKalori()" class="w-full p-2.5 rounded-xl border border-slate-300 text-xs bg-white">
+                            <option value="0">-- 1. Pilih Makanan Pokok --</option>
+                            <option value="175">Nasi putih (100 gr) — 175 kkal</option>
+                            <option value="110">Nasi merah (100 gr) — 110 kkal</option>
+                            <option value="87">Kentang rebus (100 gr) — 87 kkal</option>
+                            <option value="86">Ubi jalar (100 gr) — 86 kkal</option>
+                            <option value="160">Singkong (100 gr) — 160 kkal</option>
+                            <option value="66">Roti putih (1 iris) — 66 kkal</option>
+                            <option value="67">Roti gandum (1 iris) — 67 kkal</option>
+                            <option value="350">Mi goreng instan (80 gr) — 350 kkal</option>
+                        </select>
+                        <select id="kal-malam-lauk" onchange="hitungKalori()" class="w-full p-2.5 rounded-xl border border-slate-300 text-xs bg-white">
+                            <option value="0">-- 2. Pilih Lauk-Pauk --</option>
+                            <option value="216">Dada ayam goreng + kulit (100 gr) — 216 kkal</option>
+                            <option value="184">Dada ayam goreng tanpa kulit (100 gr) — 184 kkal</option>
+                            <option value="286">Bebek goreng (100 gr) — 286 kkal</option>
+                            <option value="167">Ikan kembung (100 gr) — 167 kkal</option>
+                            <option value="105">Ikan lele goreng (100 gr) — 105 kkal</option>
+                            <option value="171">Ikan salmon panggang (100 gr) — 171 kkal</option>
+                            <option value="150">Udang goreng tepung (100 gr) — 150 kkal</option>
+                            <option value="202">Bakso sapi (100 gr) — 202 kkal</option>
+                            <option value="297">Nuget ayam (100 gr) — 297 kkal</option>
+                            <option value="68">Telur rebus (1 btr sedang) — 68 kkal</option>
+                            <option value="93">Telur dadar (1 btr besar) — 93 kkal</option>
+                            <option value="118">Tempe goreng (1 porsi) — 118 kkal</option>
+                            <option value="113">Tahu sumedang (1 porsi) — 113 kkal</option>
+                        </select>
+                        <select id="kal-malam-sayur" onchange="hitungKalori()" class="w-full p-2.5 rounded-xl border border-slate-300 text-xs bg-white">
+                            <option value="0">-- 3. Pilih Sayur / Buah --</option>
+                            <option value="106">Tumis labu siam (100 gr) — 106 kkal</option>
+                            <option value="155">Tumis kangkung (85 gr) — 155 kkal</option>
+                            <option value="102">Tumis kacang panjang & tempe (110 gr) — 102 kkal</option>
+                            <option value="105">Pisang (1 buah sedang) — 105 kkal</option>
+                            <option value="62">Jeruk (1 buah) — 62 kkal</option>
+                            <option value="50">Buah naga (1 buah sedang) — 50 kkal</option>
+                            <option value="39">Pepaya (100 gr) — 39 kkal</option>
+                            <option value="30">Semangka (100 gr) — 30 kkal</option>
+                            <option value="34">Melon (100 gr) — 34 kkal</option>
+                        </select>
+                        <select id="kal-malam-lain" onchange="hitungKalori()" class="w-full p-2.5 rounded-xl border border-slate-300 text-xs bg-white">
+                            <option value="0">-- 4. Pilih Lain-Lain / Camilan --</option>
+                            <option value="0">Air putih (1 gelas) — 0 kkal</option>
+                            <option value="122">Susu hangat sebelum tidur (200 ml) — 122 kkal</option>
+                            <option value="107">Sambal goreng kentang (100 gr) — 107 kkal</option>
+                            <option value="117">Perkedel kentang (75 gr) — 117 kkal</option>
+                            <option value="210">Donat / Kue manis (1 buah) — 210 kkal</option>
+                            <option value="180">Gorengan / Camilan malam — 180 kkal</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Hasil Perhitungan Kalori -->
+                <div class="bg-gradient-to-r from-emerald-900 to-teal-900 text-white p-5 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div>
+                        <div class="text-xs text-emerald-200 uppercase font-bold tracking-wider">Total Estimasi Energi Harian</div>
+                        <div class="font-display text-3xl font-extrabold text-amber-300"><span id="total-kalori-display">0</span> <span class="text-base font-normal text-white">kkal</span></div>
+                        <p id="kalori-feedback" class="text-xs text-emerald-100 mt-1">Silakan pilih menu makanmu di atas (Kebutuhan remaja usia 13–15 tahun rata-rata ±2.000–2.400 kkal/hari).</p>
+                    </div>
+                    <button onclick="resetKalori()" class="bg-white/15 hover:bg-white/25 px-4 py-2 rounded-xl text-xs font-semibold transition">
+                        Reset Menu
+                    </button>
+                </div>
+            </div>
+
+            <!-- FITUR 3: PERANCANG & MONITORING AKTIVITAS JASMANI MINGGUAN (TABEL 6.6) -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center text-xl font-bold">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-cyan-600">Tabel 6.6 Buku Siswa • Monitoring Mingguan</span>
+                        <h2 class="font-display text-2xl font-extrabold text-slate-900">Simulator Rencana Aktivitas Jasmani Mingguan</h2>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-600 mb-4">Masukkan target durasi latihanmu (dalam <strong>menit</strong>) dari Senin hingga Minggu untuk mengecek apakah sudah memenuhi standar WHO & Kemenkes (minimal 60 menit/hari atau 420 menit/minggu):</p>
+
+                <div class="overflow-x-auto mb-4">
+                    <table class="w-full border-collapse border border-slate-200 text-xs text-center">
+                        <thead>
+                            <tr class="bg-slate-800 text-white">
+                                <th class="p-2.5 border border-slate-700">Hari</th>
+                                <th class="p-2.5 border border-slate-700">Aktivitas Sedang (Mnt)</th>
+                                <th class="p-2.5 border border-slate-700">Aerobik / Olahraga (Mnt)</th>
+                                <th class="p-2.5 border border-slate-700">Latihan Otot & Lentur (Mnt)</th>
+                                <th class="p-2.5 border border-slate-700 bg-emerald-800">Total Harian</th>
+                            </tr>
+                        </thead>
+                        <tbody id="fitt-planner-body"></tbody>
+                    </table>
+                </div>
+
+                <div id="fitt-summary-box" class="bg-cyan-50 border border-cyan-200 p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <div class="text-sm text-cyan-950">
+                        Total Durasi Mingguan Kamu: <strong id="total-menit-mingguan" class="text-xl text-emerald-700">0 Menit</strong> <span class="text-xs text-slate-500">(Target Ideal Remaja: ≥ 420 menit/minggu)</span>
+                    </div>
+                    <span id="status-fitt-badge" class="bg-amber-200 text-amber-900 text-xs font-bold px-3 py-1.5 rounded-full">Belum Memenuhi Target</span>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECTION 2: LKPD INTERAKTIF & UNDUH PDF     -->
+        <!-- ========================================== -->
+        <section id="section-lkpd" class="hidden fade-in space-y-6">
+            
+            <!-- Action Bar Unduh PDF -->
+            <div class="bg-gradient-to-r from-emerald-800 to-teal-800 text-white p-5 rounded-2xl shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>
+                    <h2 class="font-display text-lg sm:text-xl font-bold flex items-center gap-2">
+                        <i class="fas fa-file-signature text-amber-300"></i> Lembar Kerja Peserta Didik (LKPD) Digital
+                    </h2>
+                    <p class="text-xs sm:text-sm text-emerald-100">Isi seluruh kolom tugas di bawah ini dengan lengkap, lalu klik tombol untuk mengunduh hasilnya dalam format PDF.</p>
+                </div>
+                <button onclick="downloadLKPD()" id="btn-download-pdf" class="bg-amber-400 hover:bg-amber-300 text-emerald-950 font-extrabold px-5 py-3 rounded-xl shadow-lg transition transform hover:scale-105 flex items-center gap-2 text-sm whitespace-nowrap">
+                    <i class="fas fa-download"></i> Unduh LKPD (PDF)
+                </button>
+            </div>
+
+            <!-- Area yang akan dicetak ke PDF -->
+            <div id="lkpd-printable-area" class="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-slate-200 space-y-8">
+                
+                <!-- Kop Resmi LKPD MTsN 1 Kota Malang -->
+                <div class="border-b-4 border-double border-emerald-800 pb-4 text-center">
+                    <div class="text-xs font-bold tracking-widest text-emerald-700 uppercase">Kementerian Agama Republik Indonesia</div>
+                    <h3 class="font-display text-xl sm:text-2xl font-extrabold text-slate-900">MTsN 1 KOTA MALANG</h3>
+                    <p class="text-xs sm:text-sm text-slate-600">Lembar Kerja Peserta Didik (LKPD) — Mata Pelajaran PJOK Kelas VII</p>
+                    <p class="text-xs font-semibold text-emerald-800 mt-1">Materi: Bab VI. Pola Memilih Hidup Sehat | Guru: Dicky Fajar Ramadhan, S.OR</p>
+                </div>
+
+                <!-- Identitas Siswa -->
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                    <h4 class="font-bold text-sm uppercase tracking-wider text-slate-700 mb-3"><i class="fas fa-id-card mr-1.5 text-emerald-600"></i> Identitas Peserta Didik</h4>
+                    <div class="grid sm:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Nama Lengkap Siswa *</label>
+                            <input type="text" id="lkpd-nama" placeholder="Contoh: Ahmad Zaki Pratama" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Kelas *</label>
+                            <input type="text" id="lkpd-kelas" placeholder="Contoh: VII-A / VII-B" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Nomor Absen / Tanggal *</label>
+                            <input type="text" id="lkpd-absen" placeholder="Contoh: No. 12 / 15 Nov 2026" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-sm">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AKTIVITAS 1: STUDI KASUS EKO (Aktivitas 6.1 Buku Siswa) -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <span class="bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-lg">Aktivitas 1</span>
+                        <h4 class="font-display font-bold text-lg text-slate-900">Analisis Studi Kasus Gaya Hidup (Kisah Eko)</h4>
+                    </div>
+                    
+                    <div class="bg-amber-50/80 border border-amber-200 p-4 rounded-2xl text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        <strong>Bacalah narasi berikut dengan saksama:</strong><br>
+                        <em>"Eko adalah pelajar SMP kelas VII. Setiap pagi ia berangkat ke sekolah dengan berjalan kaki meskipun jarak rumahnya cukup jauh. Eko tidak pernah sarapan di rumah, melainkan membeli makanan dan minuman kemasan berperisa di kantin sekolah. Saat pelajaran PJOK, Eko sangat aktif dan mahir bermain sepak bola. Namun di kelas lain, ia sering mengantuk dan tertidur. Sepulang sekolah, Eko membantu orang tuanya berdagang di pasar. Malam harinya, ia sering diajak teman-temannya yang berusia dewasa menongkrong di warung kopi hingga larut malam untuk bermain game online, minum kopi, bahkan ikut merokok."</em>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse border border-slate-300 text-xs sm:text-sm">
+                            <thead>
+                                <tr class="bg-emerald-700 text-white">
+                                    <th class="border border-slate-300 p-2.5 text-left w-1/4">Kebiasaan Sehat Eko</th>
+                                    <th class="border border-slate-300 p-2.5 text-left w-1/4">Alasan Kesehatan</th>
+                                    <th class="border border-slate-300 p-2.5 text-left w-1/4">Kebiasaan Tidak Sehat Eko</th>
+                                    <th class="border border-slate-300 p-2.5 text-left w-1/4">Risiko / Dampak Buruk</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-slate-300 p-2"><textarea id="eko-sehat-1" rows="3" placeholder="1. Berjalan kaki ke sekolah..." class="w-full p-2 rounded-lg border border-slate-200 focus:outline-emerald-500 text-xs"></textarea></td>
+                                    <td class="border border-slate-300 p-2"><textarea id="eko-alasan-sehat-1" rows="3" placeholder="Melatih kebugaran jantung..." class="w-full p-2 rounded-lg border border-slate-200 focus:outline-emerald-500 text-xs"></textarea></td>
+                                    <td class="border border-slate-300 p-2"><textarea id="eko-tidaksehat-1" rows="3" placeholder="1. Bergadang di warung kopi..." class="w-full p-2 rounded-lg border border-slate-200 focus:outline-emerald-500 text-xs"></textarea></td>
+                                    <td class="border border-slate-300 p-2"><textarea id="eko-alasan-tidaksehat-1" rows="3" placeholder="Mengantuk di kelas, imun turun..." class="w-full p-2 rounded-lg border border-slate-200 focus:outline-emerald-500 text-xs"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-slate-300 p-2"><textarea id="eko-sehat-2" rows="3" placeholder="2. Aktif olahraga sepak bola..." class="w-full p-2 rounded-lg border border-slate-200 focus:outline-emerald-500 text-xs"></textarea></td>
+                                    <td class="border border-slate-300 p-2"><textarea id="eko-alasan-sehat-2" rows="3" placeholder="Meningkatkan daya tahan..." class="w-full p-2 rounded-lg border border-slate-200 focus:outline-emerald-500 text-xs"></textarea></td>
+                                    <td class="border border-slate-300 p-2"><textarea id="eko-tidaksehat-2" rows="3" placeholder="2. Merokok & jajan kemasan..." class="w-full p-2 rounded-lg border border-slate-200 focus:outline-emerald-500 text-xs"></textarea></td>
+                                    <td class="border border-slate-300 p-2"><textarea id="eko-alasan-tidaksehat-2" rows="3" placeholder="Merusak paru-paru remaja..." class="w-full p-2 rounded-lg border border-slate-200 focus:outline-emerald-500 text-xs"></textarea></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- AKTIVITAS 2: OBSERVASI DIRI PENGGUNAAN GAWAI (Aktivitas 6.2) -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <span class="bg-teal-600 text-white text-xs font-bold px-3 py-1 rounded-lg">Aktivitas 2</span>
+                        <h4 class="font-display font-bold text-lg text-slate-900">Observasi Diri: Penggunaan Gawai & Rencana Hidup Sehat</h4>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">1. Berapa total perkiraan durasi penggunaan ponsel/gawaimu dalam sehari? Apakah termasuk normal atau berlebihan?</label>
+                            <textarea id="lkpd-gawai-durasi" rows="3" placeholder="Tuliskan rata-rata jam penggunaan gawaimu dan analisis apakah sudah melebihi batas sehat..." class="w-full p-3 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-emerald-500"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">2. Tuliskan 3 langkah konkret rencanamu untuk menerapkan rekomendasi hidup sehat remaja (Gizi, Tidur, & Aktivitas Fisik):</label>
+                            <textarea id="lkpd-rencana-sehat" rows="3" placeholder="Contoh: 1. Tidur pukul 21.30 WIB, 2. Membawa bekal makanan bergizi sesuai Isi Piringku, 3. Joging 30 menit..." class="w-full p-3 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-emerald-500"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AKTIVITAS 3: REFLEKSI DIRI (Halaman 181 Buku Siswa) -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2">
+                        <span class="bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-lg">Aktivitas 3</span>
+                        <h4 class="font-display font-bold text-lg text-slate-900">Refleksi Pemahaman Bab VI</h4>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-2 text-xs sm:text-sm bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 accent-emerald-600 rounded">
+                            <span>Saya mampu mengidentifikasi risiko kesehatan akibat gaya hidup.</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 accent-emerald-600 rounded">
+                            <span>Saya memahami bahaya rokok, begadang, gawai, dan fast food.</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 accent-emerald-600 rounded">
+                            <span>Saya memahami pentingnya menjaga kesehatan mental remaja.</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 accent-emerald-600 rounded">
+                            <span>Saya siap menerapkan pedoman Isi Piringku & olahraga rutin.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Tanda Tangan Pengesahan -->
+                <div class="pt-4 border-t border-slate-200 flex justify-between items-end text-xs text-slate-600">
+                    <div>
+                        <p>Mengetahui,</p>
+                        <p class="font-bold text-slate-800">Guru Mata Pelajaran PJOK</p>
+                        <div class="h-12"></div>
+                        <p class="font-bold underline text-slate-900">Dicky Fajar Ramadhan, S.OR</p>
+                        <p>MTsN 1 Kota Malang</p>
+                    </div>
+                    <div class="text-right">
+                        <p>Kota Malang, ............................ 2026</p>
+                        <p class="font-bold text-slate-800">Peserta Didik,</p>
+                        <div class="h-12"></div>
+                        <p id="ttd-nama-siswa" class="font-bold underline text-slate-900">( ............................................ )</p>
+                        <p>Kelas VII</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECTION 3: LATIHAN SOAL HOTS (10 SOAL C3-C4)-->
+        <!-- ========================================== -->
+        <section id="section-kuis" class="hidden fade-in space-y-6">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-5 mb-6">
+                    <div>
+                        <span class="bg-purple-100 text-purple-800 text-xs font-extrabold px-3 py-1 rounded-full">Evaluasi HOTS • Taksonomi Bloom C3 (Aplikasi) & C4 (Analisis)</span>
+                        <h2 class="font-display text-2xl font-extrabold text-slate-900 mt-2">Latihan Soal Bab VI: Memilih Hidup Sehat</h2>
+                        <p class="text-sm text-slate-600">Jawablah 10 soal analisis kasus berikut berdasarkan materi PJOK Kelas VII untuk menguji pemahamanmu!</p>
+                    </div>
+                    <div class="bg-emerald-50 border border-emerald-200 px-4 py-3 rounded-2xl text-center">
+                        <div class="text-xs text-emerald-700 font-semibold">Target KKM</div>
+                        <div class="font-display text-2xl font-extrabold text-emerald-800">80</div>
+                    </div>
+                </div>
+
+                <!-- Container Soal yang Di-render oleh JS -->
+                <div id="quiz-container" class="space-y-6"></div>
+
+                <!-- Tombol Submit Kuis -->
+                <div class="mt-8 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+                    <button onclick="resetQuiz()" class="px-5 py-3 rounded-xl border border-slate-300 text-slate-700 font-semibold text-sm hover:bg-slate-100 transition">
+                        <i class="fas fa-redo mr-1.5"></i> Ulangi Kuis
+                    </button>
+                    <button onclick="submitQuiz()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg transition transform hover:-translate-y-0.5 text-sm flex items-center gap-2">
+                        <i class="fas fa-check-double"></i> Periksa Jawaban & Lihat Skor
+                    </button>
+                </div>
+
+                <!-- Hasil Evaluasi & Pembahasan -->
+                <div id="quiz-result-box" class="hidden mt-8 bg-gradient-to-br from-slate-900 to-emerald-950 text-white rounded-3xl p-6 sm:p-8 shadow-xl">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div class="space-y-2 text-center md:text-left">
+                            <span id="result-badge" class="bg-amber-400 text-emerald-950 text-xs font-extrabold px-3 py-1 rounded-full uppercase">Hasil Evaluasi</span>
+                            <h3 id="result-title" class="font-display text-2xl sm:text-3xl font-extrabold">Luar Biasa!</h3>
+                            <p id="result-feedback" class="text-sm text-emerald-100 max-w-xl">Kamu telah berhasil menganalisis konsep pola hidup sehat remaja dengan sangat baik.</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-md border border-white/20 px-8 py-5 rounded-2xl text-center">
+                            <div class="text-xs uppercase tracking-wider text-emerald-200">Skor Akhir Kamu</div>
+                            <div id="result-score" class="font-display text-5xl font-extrabold text-amber-300 my-1">100</div>
+                            <div id="result-correct-count" class="text-xs text-emerald-100">10 dari 10 Soal Benar</div>
+                        </div>
+                    </div>
+
+                    <!-- FITUR 4: SERTIFIKAT / PIAGAM KOMITMEN HIDUP SEHAT (MUNCUL JIKA SKOR >= 80) -->
+                    <div id="certificate-wrapper" class="hidden mt-8 pt-6 border-t border-white/20 space-y-4">
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 bg-emerald-900/60 p-4 rounded-2xl border border-emerald-400/30">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-award text-amber-300 text-3xl"></i>
+                                <div>
+                                    <h4 class="font-bold text-amber-300 text-sm sm:text-base">Piagam Komitmen Hidup Sehat Terbuka!</h4>
+                                    <p class="text-xs text-emerald-100">Masukkan namamu di bawah ini untuk mencetak Piagam Kelulusan Bab VI bertanda tangan guru.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 w-full sm:w-auto">
+                                <input type="text" id="cert-input-nama" placeholder="Ketik Nama Lengkapmu..." class="px-3 py-2 rounded-xl text-slate-900 text-xs sm:text-sm font-semibold w-full sm:w-56">
+                                <button onclick="downloadCertificate()" class="bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold px-4 py-2 rounded-xl text-xs sm:text-sm whitespace-nowrap shadow">
+                                    <i class="fas fa-download mr-1"></i> Unduh Piagam
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Desain Piagam Siap Cetak PDF -->
+                        <div id="certificate-printable" class="bg-white text-slate-900 p-6 sm:p-8 rounded-2xl border-8 border-double border-emerald-700 text-center space-y-3 shadow-inner">
+                            <div class="text-xs font-bold tracking-widest text-emerald-700 uppercase">Kementerian Agama Republik Indonesia • MTsN 1 Kota Malang</div>
+                            <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-emerald-900 tracking-wide">PIAGAM KOMITMEN HIDUP SEHAT</h3>
+                            <p class="text-xs text-slate-500">Diberikan sebagai bentuk apresiasi atas ketuntasan belajar PJOK Kelas VII Bab VI (Memilih Hidup Sehat) kepada:</p>
+                            <div id="cert-display-nama" class="font-display text-xl sm:text-2xl font-extrabold text-amber-600 underline decoration-emerald-600 py-1">
+                                PESERTA DIDIK MTsN 1 KOTA MALANG
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-700 max-w-xl mx-auto leading-relaxed">
+                                Telah lulus evaluasi HOTS dengan predikat <strong>Sangat Baik</strong> serta berkomitmen menerapkan pola makan gizi seimbang (Isi Piringku), aktivitas fisik rutin, istirahat cukup, dan menjaga kesehatan mental.
+                            </p>
+                            <div class="pt-4 flex justify-between items-end max-w-md mx-auto text-xs text-slate-700">
+                                <div class="text-left">
+                                    <p>Predikat Skor:</p>
+                                    <p id="cert-display-skor" class="font-extrabold text-emerald-700 text-base">100 / 100</p>
+                                </div>
+                                <div class="text-right">
+                                    <p>Guru Mata Pelajaran PJOK,</p>
+                                    <div class="h-10"></div>
+                                    <p class="font-bold underline text-slate-900">Dicky Fajar Ramadhan, S.OR</p>
+                                    <p class="text-[11px] text-slate-500">MTsN 1 Kota Malang</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Custom Notification Toast (Pengganti alert()) -->
+    <div id="toast-box" class="fixed bottom-5 right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 max-w-sm bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-3 text-sm">
+        <i id="toast-icon" class="fas fa-info-circle text-amber-400 text-lg"></i>
+        <span id="toast-message">Pesan notifikasi</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 mt-12 py-6 px-4 text-center text-xs text-slate-500">
+        <p class="font-semibold text-slate-700">Modul Interaktif Digital PJOK Kelas VII — Bab VI: Memilih Hidup Sehat</p>
+        <p class="mt-1">Disusun untuk Pembelajaran di <strong>MTsN 1 Kota Malang</strong> • Guru Pengampu: <strong>Dicky Fajar Ramadhan, S.OR</strong></p>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 1. DATABASE 10 SOAL LATIHAN LEVEL HOTS (C3 - C4) BERDASARKAN PDF BAB VI
+        const quizQuestions = [
+            {
+                level: "C4 (Menganalisis)",
+                question: "Rafi adalah siswa kelas VII yang rutin berolahraga futsal 3 kali seminggu, tetapi ia memiliki kebiasaan bergadang hingga pukul 02.00 dini hari untuk bermain gim daring dan sering mengonsumsi mi instan di malam hari. Berdasarkan analisis risiko kesehatan remaja, dampak paling tepat yang akan dialami Rafi adalah...",
+                options: [
+                    "Kebugaran jantungnya tetap prima karena sudah diimbangi dengan bermain futsal secara rutin",
+                    "Sistem kekebalan tubuh menurun akibat gangguan produksi sitokin dan risiko obesitas meningkat karena pola makan malam yang buruk",
+                    "Pertumbuhan tinggi badannya semakin cepat karena hormon pertumbuhan aktif saat bermain gim di malam hari",
+                    "Kemampuan kognitifnya meningkat karena terbiasa melatih fokus strategi permainan gim daring"
+                ],
+                answer: 1,
+                explanation: "Analisis (C4): Meskipun rutin berolahraga, kebiasaan bergadang mengganggu produksi sitokin (senyawa pelawan infeksi) sehingga imun menurun, serta memicu pola makan malam berlebih yang menyebabkan obesitas."
+            },
+            {
+                level: "C4 (Menganalisis)",
+                question: "Sebuah studi menyebutkan bahwa remaja usia SMP yang merokok konvensional maupun elektrik (vape) selama 20 hari mengalami kerusakan jaringan paru-paru yang setara dengan perokok dewasa selama 40 tahun. Mengapa dampak rokok jauh lebih destruktif pada usia remaja?",
+                options: [
+                    "Karena paru-paru remaja masih dalam tahap pertumbuhan dan pematangan organ sehingga zat karsinogenik langsung merusak sel yang sedang berkembang",
+                    "Karena remaja belum memiliki sel darah putih untuk menyaring racun karbon monoksida",
+                    "Karena kadar nikotin pada vape berubah menjadi gas radioaktif saat dihirup remaja",
+                    "Karena remaja tidak mampu mengeluarkan asap rokok secara sempurna saat bernapas"
+                ],
+                answer: 0,
+                explanation: "Analisis (C4): Pada usia remaja, organ paru-paru masih mengalami proses pertumbuhan dan pematangan. Paparan zat beracun (tar, nikotin, CO) mengganggu perkembangan tersebut secara permanen."
+            },
+            {
+                level: "C3 (Menerapkan)",
+                question: "Nadia ingin menerapkan pedoman gizi seimbang 'Isi Piringku' dari Kementerian Kesehatan untuk menu makan siangnya di kantin madrasah. Komposisi porsi makanan yang paling tepat diterapkan Nadia adalah...",
+                options: [
+                    "Setengah piring berisi nasi putih dan mi goreng, seperempat piring ayam goreng, dan seperempat piring kerupuk",
+                    "Setengah piring berisi sayur-sayuran dan buah-buahan, seperempat piring makanan pokok (nasi/kentang), dan seperempat piring lauk-pauk (ikan/tempe)",
+                    "Tiga perempat piring berisi lauk hewani berprotein tinggi, dan seperempat piring berisi nasi merah",
+                    "Seluruh piring diisi buah-buahan saja agar terhindar dari kelebihan kalori dan lemak"
+                ],
+                answer: 1,
+                explanation: "Aplikasi (C3): Konsep 'Isi Piringku' membagi 50% piring untuk sayur dan buah, serta 50% sisanya untuk makanan pokok (karbohidrat) dan lauk-pauk (protein hewani/nabati)."
+            },
+            {
+                level: "C4 (Menganalisis)",
+                question: "Akhir-akhir ini Dimas mengeluhkan mata sering merah, berair, penglihatan terasa ganda saat membaca papan tulis, serta nyeri di area pelipis dan leher. Setelah ditelusuri, Dimas menatap layar ponsel selama 7 jam setiap hari tanpa jeda. Kondisi yang dialami Dimas menunjukkan gejala...",
+                options: [
+                    "Periodontitis akibat paparan radiasi cahaya biru ponsel",
+                    "Computer Vision Syndrome (CVS) dan indikasi awal miopia (rabun jauh) akibat kelelahan otot mata",
+                    "Gangguan kardiorespirasi karena kurangnya suplai oksigen ke otak",
+                    "Hipertensi ringan akibat tekanan darah yang meningkat saat bermain ponsel"
+                ],
+                answer: 1,
+                explanation: "Analisis (C4): Penggunaan gawai berlebihan memicu Computer Vision Syndrome (mata lelah, merah, berair, nyeri pelipis/leher, penglihatan ganda) dan merangsang rabun jauh (miopia)."
+            },
+            {
+                level: "C3 (Menerapkan)",
+                question: "Sebagai siswi kelas VII yang sudah mengalami menstruasi, Aisyah sering merasa lemas dan sulit berkonsentrasi saat pelajaran berlangsung. Berdasarkan Rekomendasi Hidup Sehat Remaja dari Kemenkes RI, tindakan preventif yang harus diterapkan Aisyah adalah...",
+                options: [
+                    "Mengurangi aktivitas fisik harian dan tidur lebih dari 12 jam setiap hari",
+                    "Mengonsumsi minuman berenergi kemasan setiap pagi sebelum berangkat sekolah",
+                    "Minum tablet penambah darah 1 kali seminggu, makan bergizi seimbang, dan mengganti pembalut setiap 4 jam sekali saat menstruasi",
+                    "Menghindari konsumsi lauk hewani dan memperbanyak makanan cepat saji tinggi kalori"
+                ],
+                answer: 2,
+                explanation: "Aplikasi (C3): Kemenkes merekomendasikan remaja putri yang sudah menstruasi untuk minum tablet tambah darah seminggu sekali guna mencegah anemia, serta menjaga kebersihan reproduksi dengan mengganti pembalut tiap 4 jam."
+            },
+            {
+                level: "C4 (Menganalisis)",
+                question: "Perhatikan pernyataan berikut:\n1) Melibatkan diri dalam ekstrakurikuler olahraga\n2) Mengalami perubahan mood secara drastis dan tiba-tiba\n3) Mampu bangkit kembali setelah mengalami kekecewaan nilai ujian\n4) Merasa takut berlebihan saat berada di lingkungan sosial\n\nDari keempat kondisi di atas, kombinasi yang menunjukkan indikator gangguan kesehatan mental pada remaja adalah...",
+                options: [
+                    "1 dan 2",
+                    "1 dan 3",
+                    "2 dan 4",
+                    "3 dan 4"
+                ],
+                answer: 2,
+                explanation: "Analisis (C4): Perubahan mood tiba-tiba (2) dan perasaan takut berlebihan (4) merupakan gejala gangguan mental, sedangkan poin 1 dan 3 adalah ciri remaja dengan kesehatan mental yang baik."
+            },
+            {
+                level: "C3 (Menerapkan)",
+                question: "Fajar merancang program latihan kebugaran jasmani mingguan menggunakan prinsip FITT: ia memilih olahraga bersepeda (Type) sebanyak 3 kali seminggu (Frequency) dengan durasi 40 menit per sesi (Time). Jika Fajar ingin meningkatkan komponen 'Intensity' pada minggu berikutnya, langkah yang harus dilakukannya adalah...",
+                options: [
+                    "Mengganti jenis olahraganya dari bersepeda menjadi permainan catur",
+                    "Meningkatkan kecepatan kayuhan atau memilih rute jalan yang sedikit menanjak agar denyut jantung meningkat",
+                    "Mengurangi jadwal latihan menjadi hanya 1 kali dalam dua minggu",
+                    "Menambah waktu istirahat tidur siang setelah selesai bersepeda"
+                ],
+                answer: 1,
+                explanation: "Aplikasi (C3): Intensity (intensitas) mengacu pada seberapa berat usaha/beban latihan yang dilakukan, misalnya meningkatkan kecepatan kayuhan atau melewati jalur menanjak."
+            },
+            {
+                level: "C4 (Menganalisis)",
+                question: "Dalam Piramida Aktivitas Jasmani Remaja, latihan kekuatan otot (seperti push-up dan curl-up) ditempatkan pada langkah ke-4 dan disarankan dilakukan minimal 2–3 hari seminggu, tidak setiap hari seperti jalan kaki. Alasan ilmiah di balik pengaturan jadwal tersebut adalah...",
+                options: [
+                    "Karena latihan otot tidak memberikan manfaat bagi kesehatan tulang remaja",
+                    "Karena otot memerlukan waktu pemulihan (recovery) antar sesi latihan untuk membangun kekuatan dan mencegah cedera otot",
+                    "Karena jalan kaki membakar kalori lebih sedikit dibandingkan tidur",
+                    "Karena latihan kekuatan otot hanya boleh dilakukan oleh atlet profesional"
+                ],
+                answer: 1,
+                explanation: "Analisis (C4): Latihan kekuatan otot memberikan beban tinggi pada serabut otot sehingga membutuhkan jeda hari untuk pemulihan jaringan otot dan mencegah cedera."
+            },
+            {
+                level: "C3 (Menerapkan)",
+                question: "Berdasarkan Tabel Kalori pada buku PJOK Kelas VII, sepiring nasi putih (100 gr = 175 kkal), 1 potong dada ayam goreng dengan kulit (216 kkal), dan semangkuk tumis kangkung (155 kkal) menghasilkan total 546 kkal. Jika seorang remaja mengonsumsi mi goreng instan (350 kkal) ditambah 2 buah donat/fast food tinggi gula-lemak setiap hari tanpa diimbangi aktivitas fisik, risiko jangka panjang yang muncul adalah...",
+                options: [
+                    "Surplus kalori harian yang menumpuk menjadi jaringan lemak dan memicu obesitas",
+                    "Defisit energi yang menyebabkan tubuh mudah lemas karena kekurangan karbohidrat",
+                    "Peningkatan kepadatan massa otot secara otomatis",
+                    "Penurunan kadar kolesterol darah secara drastis"
+                ],
+                answer: 0,
+                explanation: "Aplikasi (C3): Asupan makanan tinggi kalori, lemak, dan gula yang melebihi kebutuhan energi harian akan disimpan tubuh sebagai lemak dan memicu obesitas."
+            },
+            {
+                level: "C4 (Menganalisis)",
+                question: "Mengapa aktivitas olahraga seperti bermain bola basket, bulu tangkis, atau bersepeda bersama teman sangat efektif dalam menjaga kesehatan mental remaja sekaligus mengatasi kecanduan gawai?",
+                options: [
+                    "Karena olahraga membuat remaja kelelahan sehingga tidak sempat belajar di rumah",
+                    "Karena aktivitas fisik merangsang pelepasan hormon endorfin yang mengurangi stres, meningkatkan rasa percaya diri, serta membangun interaksi sosial langsung",
+                    "Karena aturan permainan olahraga melarang remaja memiliki ponsel pintar",
+                    "Karena olahraga hanya berfokus pada pembentukan otot tanpa memengaruhi fungsi otak"
+                ],
+                answer: 1,
+                explanation: "Analisis (C4): Olahraga memiliki manfaat psikologis: mengurangi stres, meningkatkan kesehatan psikologis, membangun kepercayaan diri, dan mengalihkan fokus gawai ke interaksi sosial nyata."
+            }
+        ];
+
+        // 2. FUNGSI NAVIGASI TAB UTAMA
+        function switchTab(tabName) {
+            const tabs = ['materi', 'fitur-ekstra', 'lkpd', 'kuis'];
+            tabs.forEach(t => {
+                document.getElementById(`section-${t}`).classList.add('hidden');
+                const btn = document.getElementById(`btn-${t}`);
+                btn.classList.remove('tab-active');
+                btn.classList.add('bg-slate-100', 'text-slate-700');
+            });
+
+            document.getElementById(`section-${tabName}`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`btn-${tabName}`);
+            activeBtn.classList.remove('bg-slate-100', 'text-slate-700');
+            activeBtn.classList.add('tab-active');
+
+            // Update progress bar visual
+            const progressMap = { 'materi': '25%', 'fitur-ekstra': '50%', 'lkpd': '75%', 'kuis': '100%' };
+            document.getElementById('progress-bar').style.width = progressMap[tabName];
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 3. FUNGSI NAVIGASI SUB BAB MATERI (5 SUB BAB)
+        function showSubBab(num) {
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById(`subbab-${i}`).classList.add('hidden');
+                const pill = document.getElementById(`sub-btn-${i}`);
+                pill.classList.remove('bg-sky-600', 'text-white', 'font-bold', 'shadow-sm');
+                pill.classList.add('bg-sky-50', 'text-sky-900', 'font-semibold');
+            }
+            document.getElementById(`subbab-${num}`).classList.remove('hidden');
+            const activePill = document.getElementById(`sub-btn-${num}`);
+            activePill.classList.remove('bg-sky-50', 'text-sky-900', 'font-semibold');
+            activePill.classList.add('bg-sky-600', 'text-white', 'font-bold', 'shadow-sm');
+        }
+
+        // 4. SIMULATOR RISIKO GAYA HIDUP REMAJA
+        function updateSimulasi() {
+            const tidur = parseInt(document.getElementById('sim-tidur').value);
+            const olahraga = parseInt(document.getElementById('sim-olahraga').value);
+            const gawai = parseInt(document.getElementById('sim-gawai').value);
+
+            document.getElementById('val-tidur').innerText = `${tidur} Jam`;
+            document.getElementById('val-olahraga').innerText = `${olahraga} Menit`;
+            document.getElementById('val-gawai').innerText = `${gawai} Jam`;
+
+            const hasilBox = document.getElementById('hasil-simulasi');
+            let skor = 0;
+            if (tidur >= 8 && tidur <= 9) skor += 2;
+            else if (tidur >= 6) skor += 1;
+
+            if (olahraga >= 60) skor += 2;
+            else if (olahraga >= 30) skor += 1;
+
+            if (gawai <= 2) skor += 2;
+            else if (gawai <= 4) skor += 1;
+
+            if (skor >= 5) {
+                hasilBox.className = "bg-emerald-900/70 border border-emerald-400/50 rounded-xl p-4 text-sm text-emerald-100";
+                hasilBox.innerHTML = `<strong><i class="fas fa-check-circle text-emerald-400 mr-1"></i> Status Sangat Sehat (Optimal):</strong> Kombinasi tidur ${tidur} jam, olahraga ${olahraga} menit, dan gawai ${gawai} jam sangat ideal mendukung konsentrasi belajar serta imunitas tubuh remaja!`;
+            } else if (skor >= 3) {
+                hasilBox.className = "bg-amber-900/70 border border-amber-400/50 rounded-xl p-4 text-sm text-amber-100";
+                hasilBox.innerHTML = `<strong><i class="fas fa-exclamation-circle text-amber-400 mr-1"></i> Status Waspada (Perlu Perbaikan):</strong> Masih ada kebiasaan yang kurang seimbang. Pastikan tidur 8–9 jam, olahraga minimal 60 menit/hari, dan batasi gawai maksimal 2–3 jam di luar jam belajar.`;
+            } else {
+                hasilBox.className = "bg-rose-900/70 border border-rose-400/50 rounded-xl p-4 text-sm text-rose-100";
+                hasilBox.innerHTML = `<strong><i class="fas fa-triangle-exclamation text-rose-400 mr-1"></i> Risiko Kesehatan Tinggi:</strong> Kurang tidur (${tidur} jam), minim gerak (${olahraga} menit), dan paparan layar tinggi (${gawai} jam) berisiko memicu kelelahan mata (CVS), penurunan imun, dan gangguan fokus belajar!`;
+            }
+        }
+
+        // 5. SINKRONISASI NAMA SISWA DI TANDA TANGAN LKPD
+        document.getElementById('lkpd-nama').addEventListener('input', function(e) {
+            const val = e.target.value.trim();
+            document.getElementById('ttd-nama-siswa').innerText = val ? `( ${val} )` : '( ............................................ )';
+        });
+
+        // 6. FITUR UNDUH LKPD MENJADI FILE PDF
+        function downloadLKPD() {
+            const namaSiswa = document.getElementById('lkpd-nama').value.trim();
+            const kelasSiswa = document.getElementById('lkpd-kelas').value.trim();
+
+            if (!namaSiswa || !kelasSiswa) {
+                showToast("Mohon isi Nama Lengkap dan Kelas terlebih dahulu sebelum mengunduh PDF!", "warning");
+                document.getElementById('lkpd-nama').focus();
+                return;
+            }
+
+            showToast("Sedang memproses dokumen LKPD menjadi PDF...", "info");
+
+            const element = document.getElementById('lkpd-printable-area');
+            const cleanFileName = `LKPD_PJOK_Bab6_${namaSiswa.replace(/\s+/g, '_')}_${kelasSiswa.replace(/\s+/g, '')}.pdf`;
+
+            const opt = {
+                margin:       [10, 10, 10, 10],
+                filename:     cleanFileName,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                showToast("Berhasil! File PDF LKPD telah diunduh.", "success");
+            }).catch(err => {
+                console.error(err);
+                showToast("Terjadi kendala saat membuat PDF. Silakan coba kembali.", "warning");
+            });
+        }
+
+        // 7. RENDER & LOGIKA KUIS HOTS (10 SOAL C3-C4)
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+
+            quizQuestions.forEach((q, idx) => {
+                const card = document.createElement('div');
+                card.className = "p-5 sm:p-6 rounded-2xl border border-slate-200 bg-slate-50/60 space-y-4";
+                
+                let optionsHTML = '';
+                const letters = ['A', 'B', 'C', 'D'];
+                q.options.forEach((opt, optIdx) => {
+                    optionsHTML += `
+                        <label id="opt-label-${idx}-${optIdx}" class="flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:border-emerald-400 cursor-pointer transition">
+                            <input type="radio" name="question-${idx}" value="${optIdx}" class="mt-1 w-4 h-4 accent-emerald-600">
+                            <span class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                                <strong class="text-slate-900 mr-1">${letters[optIdx]}.</strong> ${opt}
+                            </span>
+                        </label>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between gap-2">
+                        <span class="bg-emerald-700 text-white text-xs font-bold px-3 py-1 rounded-lg">Soal No. ${idx + 1}</span>
+                        <span class="bg-purple-100 text-purple-800 text-[11px] font-bold px-2.5 py-1 rounded-md">${q.level}</span>
+                    </div>
+                    <p class="font-semibold text-sm sm:text-base text-slate-900 leading-relaxed whitespace-pre-line">${q.question}</p>
+                    <div class="space-y-2.5">${optionsHTML}</div>
+                    <div id="explanation-${idx}" class="hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed"></div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function submitQuiz() {
+            let correctCount = 0;
+            let answeredCount = 0;
+
+            quizQuestions.forEach((q, idx) => {
+                const selected = document.querySelector(`input[name="question-${idx}"]:checked`);
+                const expBox = document.getElementById(`explanation-${idx}`);
+                
+                // Reset styling opsi
+                for (let i = 0; i < 4; i++) {
+                    const lbl = document.getElementById(`opt-label-${idx}-${i}`);
+                    lbl.classList.remove('border-emerald-500', 'bg-emerald-50', 'border-rose-500', 'bg-rose-50');
+                }
+
+                if (selected) {
+                    answeredCount++;
+                    const userAns = parseInt(selected.value);
+                    const correctLbl = document.getElementById(`opt-label-${idx}-${q.answer}`);
+                    correctLbl.classList.add('border-emerald-500', 'bg-emerald-50');
+
+                    expBox.classList.remove('hidden');
+                    if (userAns === q.answer) {
+                        correctCount++;
+                        expBox.className = "p-4 rounded-xl text-xs sm:text-sm leading-relaxed bg-emerald-100 text-emerald-950 border border-emerald-300";
+                        expBox.innerHTML = `<strong><i class="fas fa-check-circle text-emerald-600 mr-1"></i> Jawaban Tepat!</strong> ${q.explanation}`;
+                    } else {
+                        const wrongLbl = document.getElementById(`opt-label-${idx}-${userAns}`);
+                        wrongLbl.classList.add('border-rose-500', 'bg-rose-50');
+                        expBox.className = "p-4 rounded-xl text-xs sm:text-sm leading-relaxed bg-rose-100 text-rose-950 border border-rose-300";
+                        expBox.innerHTML = `<strong><i class="fas fa-times-circle text-rose-600 mr-1"></i> Kurang Tepat.</strong> ${q.explanation}`;
+                    }
+                }
+            });
+
+            if (answeredCount < quizQuestions.length) {
+                showToast(`Kamu baru menjawab ${answeredCount} dari 10 soal. Silakan lengkapi semua soal!`, "warning");
+                return;
+            }
+
+            const finalScore = correctCount * 10;
+            const resultBox = document.getElementById('quiz-result-box');
+            resultBox.classList.remove('hidden');
+
+            document.getElementById('result-score').innerText = finalScore;
+            document.getElementById('result-correct-count').innerText = `${correctCount} dari 10 Soal Benar`;
+
+            if (finalScore >= 80) {
+                document.getElementById('result-badge').innerText = "LULUS KKM • SANGAT BAIK";
+                document.getElementById('result-title').innerText = "Selamat! Nilai Kamu Melampaui KKM!";
+                document.getElementById('result-feedback').innerText = "Pemahaman analisis (C3–C4) kamu tentang Pola Memilih Hidup Sehat sangat luar biasa. Pertahankan gaya hidup sehatmu setiap hari!";
+                document.getElementById('certificate-wrapper').classList.remove('hidden');
+                document.getElementById('cert-display-skor').innerText = `${finalScore} / 100`;
+                const lkpdNama = document.getElementById('lkpd-nama').value.trim();
+                if (lkpdNama) {
+                    document.getElementById('cert-input-nama').value = lkpdNama;
+                    document.getElementById('cert-display-nama').innerText = lkpdNama.toUpperCase();
+                }
+            } else {
+                document.getElementById('result-badge').innerText = "PERLU PENGUATAN MATERI";
+                document.getElementById('result-title').innerText = "Terus Semangat Belajar!";
+                document.getElementById('result-feedback').innerText = "Pelajari kembali pembahasan di setiap soal yang masih keliru, lalu coba kerjakan ulang latihan soal ini agar mencapai KKM (80).";
+                document.getElementById('certificate-wrapper').classList.add('hidden');
+            }
+
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            showToast(`Penilaian selesai! Skor akhir kamu: ${finalScore}`, "success");
+        }
+
+        function resetQuiz() {
+            renderQuiz();
+            document.getElementById('quiz-result-box').classList.add('hidden');
+            document.getElementById('certificate-wrapper').classList.add('hidden');
+            showToast("Kuis telah direset. Silakan kerjakan kembali!", "info");
+        }
+
+        // 8. LOGIKA ICE BREAKING: MITOS VS FAKTA KESEHATAN
+        const mitosFaktaData = [
+            {
+                statement: "Rokok elektrik (vape) aman bagi pelajar SMP karena hanya menghasilkan uap air beraroma buah dan tidak mengandung tar.",
+                isFact: false,
+                reason: "MITOS! Vape tetap mengandung nikotin adiktif dan zat kimia berbahaya yang merusak jaringan paru-paru remaja yang masih berkembang."
+            },
+            {
+                statement: "Remaja usia 12–18 tahun membutuhkan waktu tidur malam selama 8–9 jam agar konsentrasi belajar dan imunitas terjaga.",
+                isFact: true,
+                reason: "FAKTA! Menurut Kemenkes RI, kurang tidur mengganggu produksi sitokin pelawan infeksi serta memicu stres dan penurunan konsentrasi di kelas."
+            },
+            {
+                statement: "Bergadang di akhir pekan bisa dibayar lunas dengan tidur seharian dari pagi sampai sore tanpa dampak buruk bagi tubuh.",
+                isFact: false,
+                reason: "MITOS! Pola tidur yang tidak teratur tetap mengacaukan ritme biologis tubuh, memicu pola makan malam berlebih, dan menurunkan kebugaran."
+            },
+            {
+                statement: "Dalam pedoman 'Isi Piringku', porsi sayur dan buah dalam sekali makan harus mengisi separuh (50%) dari piring.",
+                isFact: true,
+                reason: "FAKTA! Separuh piring untuk sayur dan buah, sedangkan separuh lainnya untuk makanan pokok dan lauk-pauk."
+            }
+        ];
+
+        function renderMitosFakta() {
+            const container = document.getElementById('mitos-fakta-container');
+            container.innerHTML = '';
+            mitosFaktaData.forEach((item, i) => {
+                const div = document.createElement('div');
+                div.className = "p-4 rounded-2xl border border-slate-200 bg-slate-50 flex flex-col justify-between gap-3";
+                div.innerHTML = `
+                    <p class="text-xs sm:text-sm font-semibold text-slate-800">"${item.statement}"</p>
+                    <div class="flex gap-2">
+                        <button onclick="checkMitosFakta(${i}, false)" class="flex-1 py-2 rounded-xl bg-rose-100 hover:bg-rose-200 text-rose-800 font-bold text-xs transition">MITOS</button>
+                        <button onclick="checkMitosFakta(${i}, true)" class="flex-1 py-2 rounded-xl bg-emerald-100 hover:bg-emerald-200 text-emerald-800 font-bold text-xs transition">FAKTA</button>
+                    </div>
+                    <div id="mf-res-${i}" class="hidden p-3 rounded-xl text-xs leading-relaxed"></div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function checkMitosFakta(index, userChoice) {
+            const item = mitosFaktaData[index];
+            const resBox = document.getElementById(`mf-res-${index}`);
+            resBox.classList.remove('hidden');
+            if (userChoice === item.isFact) {
+                resBox.className = "p-3 rounded-xl text-xs leading-relaxed bg-emerald-100 text-emerald-950 border border-emerald-300";
+                resBox.innerHTML = `<strong><i class="fas fa-check-circle text-emerald-600 mr-1"></i> Tepat Sekali!</strong> ${item.reason}`;
+            } else {
+                resBox.className = "p-3 rounded-xl text-xs leading-relaxed bg-amber-100 text-amber-950 border border-amber-300";
+                resBox.innerHTML = `<strong><i class="fas fa-info-circle text-amber-600 mr-1"></i> Kurang Tepat!</strong> ${item.reason}`;
+            }
+        }
+
+        function resetMitosFakta() {
+            renderMitosFakta();
+            showToast("Kartu Mitos vs Fakta telah direset!", "info");
+        }
+
+        // 9. LOGIKA KALKULATOR KALORI HARIAN
+        function hitungKalori() {
+            const ids = [
+                'kal-sarapan-pokok', 'kal-sarapan-lauk', 'kal-sarapan-sayur', 'kal-sarapan-lain',
+                'kal-siang-pokok', 'kal-siang-lauk', 'kal-siang-sayur', 'kal-siang-lain',
+                'kal-malam-pokok', 'kal-malam-lauk', 'kal-malam-sayur', 'kal-malam-lain'
+            ];
+            let total = 0;
+            ids.forEach(id => {
+                total += parseInt(document.getElementById(id).value || 0);
+            });
+            document.getElementById('total-kalori-display').innerText = total.toLocaleString('id-ID');
+
+            const fb = document.getElementById('kalori-feedback');
+            if (total === 0) {
+                fb.innerText = "Silakan pilih menu makanmu di atas (Kebutuhan remaja usia 13–15 tahun rata-rata ±2.000–2.400 kkal/hari).";
+            } else if (total < 1200) {
+                fb.innerText = "Asupan kalori dari 3 waktu makan utama masih tergolong rendah. Pastikan dilengkapi camilan sehat (buah/susu) dan air putih 8 gelas!";
+            } else if (total <= 2400) {
+                fb.innerText = "Asupan kalori makan utamamu sangat seimbang untuk mendukung aktivitas belajar dan olahraga remaja!";
+            } else {
+                fb.innerText = "Perhatian: Total kalori cukup tinggi! Imbangi dengan aktivitas fisik minimal 60 menit/hari agar tidak terjadi penumpukan lemak.";
+            }
+        }
+
+        function resetKalori() {
+            const ids = [
+                'kal-sarapan-pokok', 'kal-sarapan-lauk', 'kal-sarapan-sayur', 'kal-sarapan-lain',
+                'kal-siang-pokok', 'kal-siang-lauk', 'kal-siang-sayur', 'kal-siang-lain',
+                'kal-malam-pokok', 'kal-malam-lauk', 'kal-malam-sayur', 'kal-malam-lain'
+            ];
+            ids.forEach(id => document.getElementById(id).value = "0");
+            hitungKalori();
+        }
+
+        // 10. LOGIKA SIMULATOR MONITORING AKTIVITAS JASMANI MINGGUAN (TABEL 6.6)
+        const hariList = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+        function renderFittPlanner() {
+            const tbody = document.getElementById('fitt-planner-body');
+            tbody.innerHTML = '';
+            hariList.forEach((hari, i) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="p-2 border border-slate-200 font-bold text-slate-700 bg-slate-50">${hari}</td>
+                    <td class="p-1.5 border border-slate-200"><input type="number" min="0" max="180" value="30" oninput="hitungFittMingguan()" id="fitt-sedang-${i}" class="w-16 p-1.5 text-center border border-slate-300 rounded-lg"></td>
+                    <td class="p-1.5 border border-slate-200"><input type="number" min="0" max="180" value="${i % 2 === 0 ? 30 : 0}" oninput="hitungFittMingguan()" id="fitt-aerobik-${i}" class="w-16 p-1.5 text-center border border-slate-300 rounded-lg"></td>
+                    <td class="p-1.5 border border-slate-200"><input type="number" min="0" max="180" value="${i === 1 || i === 4 ? 20 : 0}" oninput="hitungFittMingguan()" id="fitt-otot-${i}" class="w-16 p-1.5 text-center border border-slate-300 rounded-lg"></td>
+                    <td class="p-2 border border-slate-200 font-extrabold text-emerald-700 bg-emerald-50/50" id="fitt-harian-${i}">60 mnt</td>
+                `;
+                tbody.appendChild(tr);
+            });
+            hitungFittMingguan();
+        }
+
+        function hitungFittMingguan() {
+            let totalMinggu = 0;
+            hariList.forEach((_, i) => {
+                const s = parseInt(document.getElementById(`fitt-sedang-${i}`).value || 0);
+                const a = parseInt(document.getElementById(`fitt-aerobik-${i}`).value || 0);
+                const o = parseInt(document.getElementById(`fitt-otot-${i}`).value || 0);
+                const harian = s + a + o;
+                totalMinggu += harian;
+                document.getElementById(`fitt-harian-${i}`).innerText = `${harian} mnt`;
+            });
+            document.getElementById('total-menit-mingguan').innerText = `${totalMinggu} Menit`;
+            const badge = document.getElementById('status-fitt-badge');
+            if (totalMinggu >= 420) {
+                badge.className = "bg-emerald-600 text-white text-xs font-bold px-3 py-1.5 rounded-full";
+                badge.innerHTML = `<i class="fas fa-check-circle mr-1"></i> Memenuhi Standar Sehat Remaja!`;
+            } else {
+                badge.className = "bg-amber-200 text-amber-900 text-xs font-bold px-3 py-1.5 rounded-full";
+                badge.innerHTML = `<i class="fas fa-exclamation-circle mr-1"></i> Kurang ${420 - totalMinggu} Menit dari Target`;
+            }
+        }
+
+        // 11. SINKRONISASI & UNDUH PIAGAM KOMITMEN HIDUP SEHAT (PDF)
+        document.getElementById('cert-input-nama').addEventListener('input', function(e) {
+            const val = e.target.value.trim();
+            document.getElementById('cert-display-nama').innerText = val ? val.toUpperCase() : 'PESERTA DIDIK MTsN 1 KOTA MALANG';
+        });
+
+        function downloadCertificate() {
+            const nama = document.getElementById('cert-input-nama').value.trim();
+            if (!nama) {
+                showToast("Ketikkan nama lengkapmu terlebih dahulu pada kolom Piagam!", "warning");
+                document.getElementById('cert-input-nama').focus();
+                return;
+            }
+            showToast("Sedang mengunduh Piagam Komitmen Hidup Sehat...", "info");
+            const el = document.getElementById('certificate-printable');
+            const opt = {
+                margin: 10,
+                filename: `Piagam_Hidup_Sehat_${nama.replace(/\s+/g, '_')}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
+            };
+            html2pdf().set(opt).from(el).save().then(() => {
+                showToast("Piagam berhasil diunduh!", "success");
+            });
+        }
+
+        // 12. CUSTOM TOAST MESSAGE
+        function showToast(message, type = "info") {
+            const toast = document.getElementById('toast-box');
+            const icon = document.getElementById('toast-icon');
+            const msg = document.getElementById('toast-message');
+
+            msg.innerText = message;
+            if (type === "success") icon.className = "fas fa-check-circle text-emerald-400 text-lg";
+            else if (type === "warning") icon.className = "fas fa-exclamation-triangle text-amber-400 text-lg";
+            else icon.className = "fas fa-info-circle text-cyan-400 text-lg";
+
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3500);
+        }
+
+        // Inisialisasi saat halaman dimuat
+        window.onload = function() {
+            renderQuiz();
+            renderMitosFakta();
+            renderFittPlanner();
+        };
+    </script>
+</body>
+</html>
